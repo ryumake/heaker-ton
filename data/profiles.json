@@ -1,0 +1,606 @@
+{
+  "ip-433218e7ad00100b": {
+    "profileId": "504558",
+    "ipKey": "ip-433218e7ad00100b",
+    "name": "ㅓㅗ류얼ㅇ",
+    "interests": "ㅇㄹㄴㄹㄴㅇㄹ",
+    "basicInfo": {
+      "age": "10대",
+      "region": "인천",
+      "jobs": [
+        "사무"
+      ],
+      "supports": [
+        "아직 모름"
+      ]
+    },
+    "survey": {
+      "basicInfo": {
+        "age": "10대",
+        "region": "인천",
+        "jobs": [
+          "사무"
+        ],
+        "supports": [
+          "아직 모름"
+        ]
+      },
+      "updatedAt": "2026-05-25T02:27:47.139Z"
+    },
+    "createdAt": "2026-05-25T02:00:35.288Z",
+    "updatedAt": "2026-05-25T02:27:53.076Z"
+  },
+  "ip-12ca17b49af22894": {
+    "profileId": "304136",
+    "ipKey": "ip-12ca17b49af22894",
+    "name": "",
+    "interests": "",
+    "basicInfo": {
+      "age": "10대",
+      "region": "서울",
+      "jobs": [
+        "IT/개발"
+      ],
+      "supports": [
+        "채용정보"
+      ]
+    },
+    "survey": {
+      "basicInfo": {
+        "age": "10대",
+        "region": "서울",
+        "jobs": [
+          "IT/개발"
+        ],
+        "supports": [
+          "채용정보"
+        ]
+      },
+      "updatedAt": "2026-05-25T03:53:37.459Z",
+      "reentryDraft": [
+        {
+          "question": "1",
+          "answer": "아니오 (1점)",
+          "buttonIndex": 0
+        },
+        {
+          "question": "2",
+          "answer": "예",
+          "buttonIndex": 0
+        },
+        {
+          "question": "3",
+          "answer": "4시간 이상",
+          "buttonIndex": 0
+        },
+        {
+          "question": "4",
+          "answer": "부모·친지 등 주변 도움",
+          "buttonIndex": 0
+        },
+        {
+          "question": "5",
+          "answer": "2년 이상",
+          "buttonIndex": 0
+        },
+        {
+          "question": "6",
+          "answer": "없음 또는 혼자",
+          "buttonIndex": 0
+        },
+        {
+          "question": "7",
+          "answer": "6시간 이상",
+          "buttonIndex": 0
+        },
+        {
+          "question": "8",
+          "answer": "6시간 이상",
+          "buttonIndex": 0
+        },
+        {
+          "question": "9",
+          "answer": "없음",
+          "buttonIndex": 0
+        },
+        {
+          "question": "10",
+          "answer": "아니오",
+          "buttonIndex": 0
+        },
+        {
+          "question": "11",
+          "answer": "없음",
+          "buttonIndex": 0
+        },
+        {
+          "question": "12",
+          "answer": "없음",
+          "buttonIndex": 0
+        },
+        {
+          "question": "13",
+          "answer": "아니오",
+          "buttonIndex": 0
+        },
+        {
+          "question": "14",
+          "answer": "없음",
+          "buttonIndex": 0
+        },
+        {
+          "question": "15",
+          "answer": "1~2회",
+          "buttonIndex": 1
+        },
+        {
+          "question": "16",
+          "answer": "없음",
+          "buttonIndex": 0
+        }
+      ],
+      "reentryResult": {
+        "riskScore": 20,
+        "maxRiskScore": 26,
+        "readinessScore": 23,
+        "supportNeedScore": 77,
+        "scoringMethod": "readinessScore = ((maxRiskScore - riskScore) / maxRiskScore) * 100",
+        "answers": [
+          {
+            "question": "1",
+            "answer": "아니오 (1점)",
+            "buttonIndex": 0,
+            "riskScore": 1
+          },
+          {
+            "question": "2",
+            "answer": "예",
+            "buttonIndex": 0,
+            "riskScore": 0
+          },
+          {
+            "question": "3",
+            "answer": "4시간 이상",
+            "buttonIndex": 0,
+            "riskScore": 0
+          },
+          {
+            "question": "4",
+            "answer": "부모·친지 등 주변 도움",
+            "buttonIndex": 0,
+            "riskScore": 1
+          },
+          {
+            "question": "5",
+            "answer": "2년 이상",
+            "buttonIndex": 0,
+            "riskScore": 2
+          },
+          {
+            "question": "6",
+            "answer": "없음 또는 혼자",
+            "buttonIndex": 0,
+            "riskScore": 2
+          },
+          {
+            "question": "7",
+            "answer": "6시간 이상",
+            "buttonIndex": 0,
+            "riskScore": 2
+          },
+          {
+            "question": "8",
+            "answer": "6시간 이상",
+            "buttonIndex": 0,
+            "riskScore": 2
+          },
+          {
+            "question": "9",
+            "answer": "없음",
+            "buttonIndex": 0,
+            "riskScore": 2
+          },
+          {
+            "question": "10",
+            "answer": "아니오",
+            "buttonIndex": 0,
+            "riskScore": 1
+          },
+          {
+            "question": "11",
+            "answer": "없음",
+            "buttonIndex": 0,
+            "riskScore": 2
+          },
+          {
+            "question": "12",
+            "answer": "없음",
+            "buttonIndex": 0,
+            "riskScore": 1
+          },
+          {
+            "question": "13",
+            "answer": "아니오",
+            "buttonIndex": 0,
+            "riskScore": 0
+          },
+          {
+            "question": "14",
+            "answer": "없음",
+            "buttonIndex": 0,
+            "riskScore": 2
+          },
+          {
+            "question": "15",
+            "answer": "1~2회",
+            "buttonIndex": 1,
+            "riskScore": 1
+          },
+          {
+            "question": "16",
+            "answer": "없음",
+            "buttonIndex": 0,
+            "riskScore": 1
+          }
+        ],
+        "completedAt": "2026-05-25T03:53:31.777Z"
+      },
+      "phq9Draft": {
+        "question-1": 1,
+        "question-2": 2,
+        "question-3": 3,
+        "question-4": 1,
+        "question-5": 0,
+        "question-6": 1,
+        "question-7": 2,
+        "question-8": 3,
+        "question-9": 0
+      },
+      "phq9Score": 13,
+      "phq9Guide": "마음 돌봄과 취업 준비를 함께 확인하는 화면으로 이동하면 좋아요."
+    },
+    "createdAt": "2026-05-25T02:00:50.134Z",
+    "updatedAt": "2026-05-25T03:53:43.711Z"
+  },
+  "ip-b75b179929cd924c": {
+    "profileId": "270533",
+    "ipKey": "ip-b75b179929cd924c",
+    "name": "김재석",
+    "interests": "사무, IT, 그림",
+    "basicInfo": {
+      "age": "10대",
+      "region": "서울",
+      "jobs": [
+        "IT/개발"
+      ],
+      "supports": [
+        "채용정보"
+      ]
+    },
+    "survey": {
+      "basicInfo": {
+        "age": "10대",
+        "region": "서울",
+        "jobs": [
+          "IT/개발"
+        ],
+        "supports": [
+          "채용정보"
+        ]
+      },
+      "updatedAt": "2026-05-25T02:21:53.085Z",
+      "reentryDraft": [
+        {
+          "question": "1",
+          "answer": "예 (0점)",
+          "riskScore": 0
+        },
+        {
+          "question": "2",
+          "answer": "예",
+          "riskScore": 0
+        },
+        {
+          "question": "3",
+          "answer": "4시간 이상",
+          "riskScore": 0
+        },
+        {
+          "question": "4",
+          "answer": "부모·친지 등 주변 도움",
+          "riskScore": 1
+        },
+        {
+          "question": "5",
+          "answer": "6개월~2년 미만",
+          "riskScore": 1
+        },
+        {
+          "question": "6",
+          "answer": "친구",
+          "riskScore": 0
+        },
+        {
+          "question": "7",
+          "answer": "4~6시간 미만",
+          "riskScore": 1
+        },
+        {
+          "question": "8",
+          "answer": "4~6시간 미만",
+          "riskScore": 1
+        },
+        {
+          "question": "9",
+          "answer": "없음",
+          "riskScore": 2
+        },
+        {
+          "question": "10",
+          "answer": "아니오",
+          "riskScore": 1
+        },
+        {
+          "question": "11",
+          "answer": "있음",
+          "riskScore": 0
+        },
+        {
+          "question": "12",
+          "answer": "1~2회",
+          "riskScore": 0
+        },
+        {
+          "question": "13",
+          "answer": "예",
+          "riskScore": 1
+        },
+        {
+          "question": "14",
+          "answer": "1~2회",
+          "riskScore": 1
+        },
+        {
+          "question": "15",
+          "answer": "없음",
+          "riskScore": 2
+        },
+        {
+          "question": "16",
+          "answer": "3회 이상",
+          "riskScore": 0
+        }
+      ],
+      "reentryResult": {
+        "riskScore": 11,
+        "maxRiskScore": 26,
+        "readinessScore": 58,
+        "supportNeedScore": 42,
+        "scoringMethod": "readinessScore = ((maxRiskScore - riskScore) / maxRiskScore) * 100",
+        "answers": [
+          {
+            "question": "1",
+            "answer": "예 (0점)",
+            "riskScore": 0
+          },
+          {
+            "question": "2",
+            "answer": "예",
+            "riskScore": 0
+          },
+          {
+            "question": "3",
+            "answer": "4시간 이상",
+            "riskScore": 0
+          },
+          {
+            "question": "4",
+            "answer": "부모·친지 등 주변 도움",
+            "riskScore": 1
+          },
+          {
+            "question": "5",
+            "answer": "6개월~2년 미만",
+            "riskScore": 1
+          },
+          {
+            "question": "6",
+            "answer": "친구",
+            "riskScore": 0
+          },
+          {
+            "question": "7",
+            "answer": "4~6시간 미만",
+            "riskScore": 1
+          },
+          {
+            "question": "8",
+            "answer": "4~6시간 미만",
+            "riskScore": 1
+          },
+          {
+            "question": "9",
+            "answer": "없음",
+            "riskScore": 2
+          },
+          {
+            "question": "10",
+            "answer": "아니오",
+            "riskScore": 1
+          },
+          {
+            "question": "11",
+            "answer": "있음",
+            "riskScore": 0
+          },
+          {
+            "question": "12",
+            "answer": "1~2회",
+            "riskScore": 0
+          },
+          {
+            "question": "13",
+            "answer": "예",
+            "riskScore": 1
+          },
+          {
+            "question": "14",
+            "answer": "1~2회",
+            "riskScore": 1
+          },
+          {
+            "question": "15",
+            "answer": "없음",
+            "riskScore": 2
+          },
+          {
+            "question": "16",
+            "answer": "3회 이상",
+            "riskScore": 0
+          }
+        ],
+        "completedAt": "2026-05-25T02:21:51.374Z"
+      },
+      "phq9Draft": {
+        "question-1": 1,
+        "question-2": 2,
+        "question-3": 0,
+        "question-4": 1,
+        "question-5": 3,
+        "question-6": 1,
+        "question-7": 2,
+        "question-8": 1,
+        "question-9": 3
+      },
+      "phq9Score": 14,
+      "phq9Guide": "도움 연결을 먼저 확인하는 화면으로 이동하면 좋아요."
+    },
+    "createdAt": "2026-05-25T02:02:15.373Z",
+    "updatedAt": "2026-05-25T02:24:51.912Z"
+  },
+  "ip-aa3697c05a1d0655": {
+    "profileId": "275549",
+    "ipKey": "ip-aa3697c05a1d0655",
+    "name": "",
+    "interests": "",
+    "basicInfo": null,
+    "survey": {},
+    "createdAt": "2026-05-25T02:15:41.758Z",
+    "updatedAt": "2026-05-25T02:15:41.758Z"
+  },
+  "ip-aab883503bad185a": {
+    "profileId": "936462",
+    "ipKey": "ip-aab883503bad185a",
+    "name": "",
+    "interests": "",
+    "basicInfo": {
+      "age": "20대",
+      "region": "경기",
+      "jobs": [
+        "IT/개발",
+        "사회복지"
+      ],
+      "supports": [
+        "상담/마음건강"
+      ]
+    },
+    "survey": {
+      "basicInfo": {
+        "age": "20대",
+        "region": "경기",
+        "jobs": [
+          "IT/개발",
+          "사회복지"
+        ],
+        "supports": [
+          "상담/마음건강"
+        ]
+      },
+      "updatedAt": "2026-05-25T02:28:02.153Z",
+      "reentryDraft": [
+        {
+          "question": "1",
+          "answer": "아니오 (1점)",
+          "riskScore": 1
+        },
+        {
+          "question": "2",
+          "answer": "아니요",
+          "riskScore": 2
+        },
+        {
+          "question": "3",
+          "answer": "4시간 이상",
+          "riskScore": 0
+        },
+        {
+          "question": "4",
+          "answer": "부모·친지 등 주변 도움",
+          "riskScore": 1
+        },
+        {
+          "question": "5",
+          "answer": "6개월~2년 미만",
+          "riskScore": 1
+        },
+        {
+          "question": "6",
+          "answer": "친구",
+          "riskScore": 0
+        },
+        {
+          "question": "7",
+          "answer": "6시간 이상",
+          "riskScore": 2
+        },
+        {
+          "question": "8",
+          "answer": "6시간 이상",
+          "riskScore": 2
+        },
+        {
+          "question": "9",
+          "answer": "1~2회",
+          "riskScore": 1
+        },
+        {
+          "question": "10",
+          "answer": "",
+          "riskScore": 0
+        },
+        {
+          "question": "11",
+          "answer": "없음",
+          "riskScore": 2
+        },
+        {
+          "question": "12",
+          "answer": "없음",
+          "riskScore": 1
+        },
+        {
+          "question": "13",
+          "answer": "아니오",
+          "riskScore": 0
+        },
+        {
+          "question": "14",
+          "answer": "없음",
+          "riskScore": 2
+        },
+        {
+          "question": "15",
+          "answer": "",
+          "riskScore": 0
+        },
+        {
+          "question": "16",
+          "answer": "",
+          "riskScore": 0
+        }
+      ]
+    },
+    "createdAt": "2026-05-25T02:27:05.661Z",
+    "updatedAt": "2026-05-25T02:28:02.152Z"
+  }
+}

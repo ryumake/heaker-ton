@@ -1,0 +1,541 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>리턴핏 도움기관</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style>
+    * { font-family: 'Pretendard', sans-serif; }
+    body { margin: 0; }
+  </style>
+</head>
+
+<body class="bg-[#e8e4de]">
+<div class="ui-screen flex items-center justify-center min-h-screen p-4">
+  <div id="app" class="relative w-full max-w-[1440px] min-h-[1024px] bg-[#f7f5f2] rounded-3xl shadow-2xl overflow-visible flex flex-col">
+
+    <!-- 상단 네비게이션: 항상 보이도록 hidden 제거 -->
+    <header id="header" class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100/70 px-8 py-4 flex items-center justify-between rounded-t-3xl">
+      <div class="flex items-center gap-8">
+        <a href="Main.html" class="text-xl font-bold tracking-tight text-slate-800">리턴핏</a>
+        <nav class="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-500">
+          <a href="Self_Inspection1.html" class="hover:text-indigo-600 transition-colors">자가점검</a>
+          <a href="Job_Posting.html" class="hover:text-indigo-600 transition-colors">채용정보</a>
+          <a href="Recruitment_Information.html" class="hover:text-indigo-600 transition-colors">보조금24</a>
+          <a href="Trainning.html" class="hover:text-indigo-600 transition-colors">훈련과정</a>
+          <a href="Support_Agency.html" class="text-indigo-600 font-semibold">도움기관</a>
+          <a href="Ai_Agent.html" class="hover:text-indigo-600 transition-colors">AI 도우미</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="flex-1 px-8 pt-8 pb-8 space-y-8">
+
+      <!-- 긴급 도움 배너 -->
+      <section id="emergency-banner" class="bg-gradient-to-r from-rose-50 via-red-50 to-rose-50 rounded-3xl p-8 shadow-sm border border-red-100/60">
+        <div class="flex items-start gap-6">
+          <div class="w-14 h-14 bg-rose-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-phone-volume text-rose-500 text-2xl"></i>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-1 flex-wrap">
+              <h2 class="text-xl font-semibold text-slate-800">긴급 도움이 필요하신가요?</h2>
+              <span class="bg-rose-100 text-rose-700 text-xs font-semibold px-3 py-1 rounded-full">24시간 상담 안내</span>
+            </div>
+            <p class="text-sm text-slate-600 mt-1">위급하거나 안전이 걱정된다면 아래 번호를 먼저 확인해 주세요. 혼자 버티지 않아도 됩니다.</p>
+
+            <div class="flex flex-wrap gap-3 mt-5">
+              <a href="tel:109" class="bg-white/80 hover:bg-white rounded-xl px-5 py-3 border border-rose-200 flex items-center gap-3 transition-all focus:outline-none focus:ring-2 focus:ring-rose-400">
+                <i class="fa-solid fa-phone text-rose-500 text-lg"></i>
+                <div>
+                  <p class="text-xs text-slate-500 font-medium">자살예방상담전화</p>
+                  <p class="text-sm font-bold text-slate-800">109</p>
+                </div>
+              </a>
+
+              <a href="tel:15770199" class="bg-white/80 hover:bg-white rounded-xl px-5 py-3 border border-rose-200 flex items-center gap-3 transition-all focus:outline-none focus:ring-2 focus:ring-rose-400">
+                <i class="fa-solid fa-phone text-rose-500 text-lg"></i>
+                <div>
+                  <p class="text-xs text-slate-500 font-medium">정신건강상담전화</p>
+                  <p class="text-sm font-bold text-slate-800">1577-0199</p>
+                </div>
+              </a>
+
+              <a href="tel:129" class="bg-white/80 hover:bg-white rounded-xl px-5 py-3 border border-rose-200 flex items-center gap-3 transition-all focus:outline-none focus:ring-2 focus:ring-rose-400">
+                <i class="fa-solid fa-phone text-rose-500 text-lg"></i>
+                <div>
+                  <p class="text-xs text-slate-500 font-medium">보건복지상담센터</p>
+                  <p class="text-sm font-bold text-slate-800">129</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 지역 필터 -->
+      <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between gap-4 flex-wrap mb-4">
+          <div>
+            <h3 class="text-lg font-semibold text-slate-800">지역별 도움기관</h3>
+            <p class="text-sm text-slate-500 mt-1">고용복지+센터, 청년센터, 정신건강복지센터를 지역별로 확인할 수 있어요.</p>
+          </div>
+          <span id="visible-count" class="bg-indigo-50 text-indigo-700 text-sm px-4 py-2 rounded-full font-semibold">전체 0개</span>
+        </div>
+
+        <div id="region-filter" class="flex flex-wrap gap-2 mb-4">
+          <button data-region="전체" class="region-btn px-4 py-2 rounded-full text-sm transition-all">전체</button>
+          <button data-region="서울" class="region-btn px-4 py-2 rounded-full text-sm transition-all">서울</button>
+          <button data-region="경기" class="region-btn px-4 py-2 rounded-full text-sm transition-all">경기</button>
+          <button data-region="인천" class="region-btn px-4 py-2 rounded-full text-sm transition-all">인천</button>
+          <button data-region="대전" class="region-btn px-4 py-2 rounded-full text-sm transition-all">대전</button>
+          <button data-region="세종" class="region-btn px-4 py-2 rounded-full text-sm transition-all">세종</button>
+          <button data-region="부산" class="region-btn px-4 py-2 rounded-full text-sm transition-all">부산</button>
+          <button data-region="제주" class="region-btn px-4 py-2 rounded-full text-sm transition-all">제주</button>
+        </div>
+
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-300"></i>
+          <input id="search-input" type="search" placeholder="지역명, 기관명, 주소로 검색해보세요" class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-11 pr-4 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300">
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 mt-4">
+          <button id="distance-sort-btn" type="button" class="bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">
+            <i class="fa-solid fa-location-crosshairs mr-1 text-indigo-500"></i>내 위치 기준 거리순
+          </button>
+          <button id="reset-sort-btn" type="button" class="bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">
+            <i class="fa-solid fa-arrow-rotate-left mr-1 text-slate-400"></i>기본 정렬로 복귀
+          </button>
+          <span id="sort-status" class="text-xs text-slate-400">기본 정렬: 지역, 기관 유형 순</span>
+        </div>
+
+        <div id="location-help" class="hidden mt-4 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-sm text-amber-800">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p id="location-help-title" class="font-semibold">위치 권한 안내</p>
+              <p id="location-help-message" class="mt-1 text-amber-700">브라우저 권한 창이 뜨면 허용을 눌러주세요.</p>
+            </div>
+            <button id="location-help-close" type="button" class="text-amber-700 hover:text-amber-900" aria-label="위치 안내 닫기">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <div id="location-help-actions" class="flex flex-wrap gap-2 mt-3">
+            <button id="request-location-btn" type="button" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-full text-xs font-semibold">위치 권한 요청하기</button>
+            <button id="region-fallback-btn" type="button" class="bg-white hover:bg-amber-100 border border-amber-200 text-amber-800 px-4 py-2 rounded-full text-xs font-semibold">선택 지역 기준으로 보기</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 기관 카드 리스트 -->
+      <section id="center-list" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></section>
+
+      <!-- 빈 결과 -->
+      <div id="empty-state" class="hidden bg-white rounded-2xl p-10 text-center border border-slate-100">
+        <p class="text-slate-600 font-medium">선택한 조건의 기관 정보가 없어요.</p>
+        <p class="text-sm text-slate-400 mt-2">다른 지역을 선택하거나 검색어를 줄여보세요.</p>
+      </div>
+    </main>
+
+    <footer class="px-8 pb-6 pt-4 text-center text-xs text-slate-400 border-t border-slate-100 mt-auto">
+      <p>리턴핏 청년 체크인 · 지역별 고용·청년·정신건강 도움기관</p>
+      <div class="flex flex-wrap justify-center gap-2 mt-3">
+        <a href="tel:109" class="bg-rose-50 text-rose-700 border border-rose-100 rounded-full px-3 py-1.5 font-semibold">자살예방상담 109</a>
+        <a href="tel:15770199" class="bg-rose-50 text-rose-700 border border-rose-100 rounded-full px-3 py-1.5 font-semibold">정신건강상담 1577-0199</a>
+        <a href="tel:129" class="bg-rose-50 text-rose-700 border border-rose-100 rounded-full px-3 py-1.5 font-semibold">보건복지상담 129</a>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<script>
+  const PAGE_SIZE = 9;
+  const baseCenters = [
+    { region: "서울", city: "강남구", employment: { name: "서울강남고용센터", phone: "02-3466-6000", address: "강남구 테헤란로 410" }, youth: { name: "서울청년센터 강남", phone: "02-2051-5080", address: "강남구 역삼로 114" }, mental: { name: "강남구정신건강복지센터", phone: "02-2226-0343", address: "강남구 선릉로 668" } },
+    { region: "서울", city: "강동구", employment: { name: "서울동부고용센터", phone: "02-2142-8800", address: "송파구 중대로 135 (강동구 관할)" }, youth: { name: "서울청년센터 강동", phone: "02-488-8207", address: "강동구 성안로 168" }, mental: { name: "강동구정신건강복지센터", phone: "02-471-3223", address: "강동구 성안로 19" } },
+    { region: "서울", city: "강북구", employment: { name: "서울북부고용센터", phone: "02-2171-1800", address: "도봉구 도봉로 684 (강북구 관할)" }, youth: { name: "서울청년센터 강북", phone: "02-6261-0730", address: "강북구 도봉로 191" }, mental: { name: "강북구정신건강복지센터", phone: "02-986-1330", address: "강북구 도봉로 86길 22" } },
+    { region: "서울", city: "강서구", employment: { name: "서울강서고용센터", phone: "02-6921-0000", address: "강서구 강서로 466" }, youth: { name: "서울청년센터 강서", phone: "02-2602-0050", address: "강서구 양천로 552" }, mental: { name: "강서구정신건강복지센터", phone: "02-2600-5881", address: "강서구 화곡로 302" } },
+    { region: "서울", city: "관악구", employment: { name: "서울관악고용센터", phone: "02-3289-0300", address: "관악구 남부순환로 1814" }, youth: { name: "서울청년센터 관악", phone: "02-883-8396", address: "관악구 신림로 143" }, mental: { name: "관악구정신건강복지센터", phone: "02-879-7182", address: "관악구 관악로 145" } },
+    { region: "서울", city: "광진구", employment: { name: "서울동부고용센터", phone: "02-2142-8800", address: "송파구 중대로 135 (광진구 관할)" }, youth: { name: "서울청년센터 광진", phone: "02-3409-3890", address: "광진구 능동로 209" }, mental: { name: "광진구정신건강복지센터", phone: "02-450-1962", address: "광진구 자양로 167" } },
+    { region: "서울", city: "구로구", employment: { name: "서울남부고용센터", phone: "02-3282-9200", address: "영등포구 영등포로 150 (구로구 관할)" }, youth: { name: "서울청년센터 구로", phone: "02-2621-2851", address: "구로구 경인로 224" }, mental: { name: "구로구정신건강복지센터", phone: "02-860-3277", address: "구로구 가마산로 245" } },
+    { region: "서울", city: "금천구", employment: { name: "서울남부고용센터", phone: "02-3282-9200", address: "영등포구 영등포로 150 (금천구 관할)" }, youth: { name: "서울청년센터 금천", phone: "02-863-8207", address: "금천구 시흥대로 475" }, mental: { name: "금천구정신건강복지센터", phone: "02-3281-9311", address: "금천구 시흥대로 73길 70" } },
+    { region: "서울", city: "노원구", employment: { name: "서울북부고용센터", phone: "02-2171-1800", address: "도봉구 도봉로 684 (노원구 관할)" }, youth: { name: "서울청년센터 노원", phone: "02-933-2030", address: "노원구 노해로 480" }, mental: { name: "노원구정신건강복지센터", phone: "02-2116-4541", address: "노원구 노해로 437" } },
+    { region: "서울", city: "도봉구", employment: { name: "서울북부고용센터", phone: "02-2171-1800", address: "도봉구 도봉로 684" }, youth: { name: "서울청년센터 도봉", phone: "02-995-0909", address: "도봉구 도봉로 684" }, mental: { name: "도봉구정신건강복지센터", phone: "02-2091-5402", address: "도봉구 도봉로 653" } },
+    { region: "경기", city: "수원시", employment: { name: "수원고용센터", phone: "031-231-7800", address: "팔달구 경수대로 560" }, youth: { name: "수원청년바람지대", phone: "031-248-9376", address: "팔달구 효원로 241" }, mental: { name: "수원시정신건강복지센터", phone: "031-247-0888", address: "팔달구 효원로 241" } },
+    { region: "경기", city: "성남시", employment: { name: "성남고용센터", phone: "031-739-3177", address: "분당구 미금일로90번길 32" }, youth: { name: "성남시청년지원센터", phone: "031-729-4621", address: "중원구 성남대로 997" }, mental: { name: "성남시정신건강복지센터", phone: "031-754-3358", address: "중원구 성남대로 997" } },
+    { region: "경기", city: "고양시", employment: { name: "고양고용센터", phone: "031-920-3937", address: "일산동구 고봉로 32-19" }, youth: { name: "고양청년센터", phone: "031-968-3075", address: "덕양구 화신로 260번길 74" }, mental: { name: "고양시정신건강복지센터", phone: "031-968-2333", address: "일산동구 일산로 142" } },
+    { region: "인천", city: "남동구", employment: { name: "인천고용센터", phone: "032-460-4700", address: "남동구 예술로 152" }, youth: { name: "인천청년센터 남동", phone: "032-468-0821", address: "남동구 남동대로 633" }, mental: { name: "남동구정신건강복지센터", phone: "032-465-6412", address: "남동구 논고개로 118" } },
+    { region: "대전", city: "중구", employment: { name: "대전고용센터", phone: "042-480-6000", address: "대전 서구 문정로 56" }, youth: { name: "대전청년내일센터", phone: "042-719-8600", address: "대전 중구 중앙로 119" }, mental: { name: "중구정신건강복지센터", phone: "042-257-2511", address: "대전 중구 보문로 246" } },
+    { region: "세종", city: "세종특별자치시", employment: { name: "세종고용센터", phone: "044-861-1350", address: "세종특별자치시 갈매로 363" }, youth: { name: "세종청년센터", phone: "044-850-8191", address: "세종특별자치시 조치원읍 군청로 87" }, mental: { name: "세종시정신건강복지센터", phone: "044-861-8500", address: "세종특별자치시 조치원읍 군청로 93" } },
+    { region: "부산", city: "연제구", employment: { name: "부산고용센터", phone: "051-860-1919", address: "부산광역시 부산진구 중앙대로 993" }, youth: { name: "부산청년센터", phone: "051-241-7860", address: "부산광역시 중구 자갈치해안로 52" }, mental: { name: "부산광역정신건강복지센터", phone: "051-242-2575", address: "부산광역시 연제구 중앙대로 1000" } },
+    { region: "제주", city: "제주시", employment: { name: "제주고용센터", phone: "064-710-4400", address: "제주시 중앙로 165" }, youth: { name: "제주청년센터", phone: "064-757-9400", address: "제주시 중앙로 53" }, mental: { name: "제주시정신건강복지센터", phone: "064-728-4074", address: "제주시 서광로 192" } }
+  ];
+
+  const regionColors = {
+    "서울": ["from-indigo-400 to-indigo-500", "bg-indigo-100", "text-indigo-600"],
+    "경기": ["from-blue-400 to-blue-500", "bg-blue-100", "text-blue-600"],
+    "인천": ["from-cyan-400 to-cyan-500", "bg-cyan-100", "text-cyan-600"],
+    "대전": ["from-violet-400 to-violet-500", "bg-violet-100", "text-violet-600"],
+    "세종": ["from-purple-400 to-purple-500", "bg-purple-100", "text-purple-600"],
+    "부산": ["from-sky-400 to-sky-500", "bg-sky-100", "text-sky-600"],
+    "제주": ["from-slate-400 to-slate-500", "bg-slate-100", "text-slate-600"]
+  };
+
+  let selectedRegion = "전체";
+  let searchKeyword = "";
+  let currentPage = 1;
+  let sortMode = "default";
+  let userLocation = null;
+
+  const centerList = document.getElementById("center-list");
+  const visibleCount = document.getElementById("visible-count");
+  const emptyState = document.getElementById("empty-state");
+  const searchInput = document.getElementById("search-input");
+  const distanceSortBtn = document.getElementById("distance-sort-btn");
+  const resetSortBtn = document.getElementById("reset-sort-btn");
+  const sortStatus = document.getElementById("sort-status");
+  const locationHelp = document.getElementById("location-help");
+  const locationHelpTitle = document.getElementById("location-help-title");
+  const locationHelpMessage = document.getElementById("location-help-message");
+  const locationHelpClose = document.getElementById("location-help-close");
+  const requestLocationBtn = document.getElementById("request-location-btn");
+  const regionFallbackBtn = document.getElementById("region-fallback-btn");
+  const pagination = document.createElement("div");
+  pagination.id = "pagination";
+  pagination.className = "flex items-center justify-center gap-2 pt-2";
+  centerList.insertAdjacentElement("afterend", pagination);
+
+  const cityCoordinates = {
+    "서울-강남구": [37.5172, 127.0473],
+    "서울-강동구": [37.5301, 127.1238],
+    "서울-강북구": [37.6396, 127.0257],
+    "서울-강서구": [37.5509, 126.8495],
+    "서울-관악구": [37.4784, 126.9516],
+    "서울-광진구": [37.5384, 127.0823],
+    "서울-구로구": [37.4955, 126.8877],
+    "서울-금천구": [37.4569, 126.8955],
+    "서울-노원구": [37.6543, 127.0568],
+    "서울-도봉구": [37.6688, 127.0471],
+    "경기-수원시": [37.2636, 127.0286],
+    "경기-성남시": [37.4200, 127.1265],
+    "경기-고양시": [37.6584, 126.8320],
+    "인천-남동구": [37.4475, 126.7315],
+    "대전-중구": [36.3250, 127.4214],
+    "세종-세종특별자치시": [36.4800, 127.2890],
+    "부산-연제구": [35.1762, 129.0798],
+    "제주-제주시": [33.4996, 126.5312]
+  };
+
+  const institutionMeta = {
+    employment: { label: "고용복지+센터", icon: "fa-solid fa-briefcase text-indigo-600", tone: "bg-indigo-100", order: 1 },
+    youth: { label: "청년센터", icon: "fa-solid fa-user-group text-teal-600", tone: "bg-teal-100", order: 2 },
+    mental: { label: "정신건강복지센터", icon: "fa-solid fa-heart-pulse text-rose-600", tone: "bg-rose-100", order: 3 }
+  };
+
+  const centers = buildUniqueInstitutions();
+
+  function normalizePhone(phone) {
+    return String(phone || "").replace(/[^0-9]/g, "");
+  }
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function getCityCoordinate(center) {
+    return cityCoordinates[`${center.region}-${center.city}`] || null;
+  }
+
+  function buildUniqueInstitutions() {
+    const byKey = new Map();
+    baseCenters.forEach(center => {
+      Object.entries(institutionMeta).forEach(([type, meta]) => {
+        const institution = center[type];
+        if (!institution?.name) return;
+        const key = `${type}|${institution.name}|${normalizePhone(institution.phone) || institution.address}`;
+        const coord = getCityCoordinate(center);
+        if (!byKey.has(key)) {
+          byKey.set(key, {
+            ...institution,
+            type,
+            typeLabel: meta.label,
+            icon: meta.icon,
+            toneClass: meta.tone,
+            order: meta.order,
+            region: center.region,
+            regions: new Set([center.region]),
+            cities: new Set([center.city]),
+            serviceAreas: new Set([`${center.region} ${center.city}`]),
+            lat: coord?.[0],
+            lng: coord?.[1],
+            distance: null
+          });
+          return;
+        }
+        const current = byKey.get(key);
+        current.regions.add(center.region);
+        current.cities.add(center.city);
+        current.serviceAreas.add(`${center.region} ${center.city}`);
+      });
+    });
+
+    return [...byKey.values()].map(item => ({
+      ...item,
+      regions: [...item.regions],
+      cities: [...item.cities],
+      serviceAreas: [...item.serviceAreas]
+    }));
+  }
+
+  function getDistanceKm(from, center) {
+    if (!from || center.lat == null || center.lng == null) return null;
+    const toRad = value => (value * Math.PI) / 180;
+    const radius = 6371;
+    const dLat = toRad(center.lat - from.lat);
+    const dLng = toRad(center.lng - from.lng);
+    const a = Math.sin(dLat / 2) ** 2 +
+      Math.cos(toRad(from.lat)) * Math.cos(toRad(center.lat)) * Math.sin(dLng / 2) ** 2;
+    return radius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  }
+
+  function matchesKeyword(center, keyword) {
+    if (!keyword) return true;
+    const target = [
+      center.region, center.regions.join(" "), center.cities.join(" "),
+      center.typeLabel, center.name, center.phone, center.address, center.serviceAreas.join(" ")
+    ].join(" ").toLowerCase();
+    return target.includes(keyword.toLowerCase());
+  }
+
+  function getFilteredCenters() {
+    const filtered = centers.filter(center => {
+      const regionMatch = selectedRegion === "전체" || center.regions.includes(selectedRegion);
+      return regionMatch && matchesKeyword(center, searchKeyword);
+    }).map(center => ({
+      ...center,
+      distance: userLocation ? getDistanceKm(userLocation, center) : null
+    }));
+
+    if (sortMode === "distance") {
+      return filtered.sort((a, b) => (a.distance ?? Infinity) - (b.distance ?? Infinity));
+    }
+
+    return filtered.sort((a, b) =>
+      a.region.localeCompare(b.region, "ko") ||
+      a.order - b.order ||
+      a.name.localeCompare(b.name, "ko")
+    );
+  }
+
+  function createCenterCard(center) {
+    const colors = regionColors[center.region] || regionColors["서울"];
+    const phone = center.phone || "";
+    const tel = normalizePhone(phone);
+    const phoneButton = tel ? `<a href="tel:${tel}" class="bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 px-3 py-2 rounded-full text-xs font-medium transition-all"><i class="fa-solid fa-phone mr-1"></i>${escapeHtml(phone)}</a>` : "";
+    const distanceBadge = center.distance != null
+      ? `<span class="bg-indigo-50 text-indigo-700 border border-indigo-100 text-xs px-3 py-1 rounded-full">약 ${center.distance.toFixed(1)}km</span>`
+      : "";
+    const serviceAreas = center.serviceAreas.map(area =>
+      `<span class="bg-slate-50 text-slate-500 border border-slate-100 text-xs px-2.5 py-1 rounded-full">${escapeHtml(area)}</span>`
+    ).join("");
+
+    return `<article class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-shadow">
+      <div class="h-2 bg-gradient-to-r ${colors[0]}"></div>
+      <div class="p-6">
+        <div class="flex items-start justify-between gap-3 mb-5">
+          <div class="flex items-start gap-3 min-w-0">
+            <div class="w-11 h-11 ${center.toneClass} rounded-xl flex items-center justify-center shrink-0"><i class="${center.icon} text-lg"></i></div>
+            <div class="min-w-0">
+              <p class="text-xs font-semibold ${colors[2]} mb-1">${escapeHtml(center.typeLabel)}</p>
+              <h3 class="text-lg font-semibold text-slate-800 leading-snug">${escapeHtml(center.name)}</h3>
+              <p class="text-xs text-slate-500 mt-2 leading-relaxed">${escapeHtml(center.address || "주소 정보 없음")}</p>
+            </div>
+          </div>
+          ${distanceBadge}
+        </div>
+        <div class="flex flex-wrap gap-1.5 mb-4">${serviceAreas}</div>
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          ${phoneButton}
+          <span class="text-xs text-slate-400">${escapeHtml(center.regions.join(", "))}</span>
+        </div>
+      </div>
+    </article>`;
+  }
+
+  function renderPagination(totalPages) {
+    if (totalPages <= 1) {
+      pagination.innerHTML = "";
+      return;
+    }
+    pagination.innerHTML = `<button type="button" data-page="prev" class="px-4 py-2 rounded-full text-sm border ${currentPage <= 1 ? "bg-slate-100 text-slate-300 border-slate-100" : "bg-white text-slate-600 border-slate-200 hover:border-indigo-300"}" ${currentPage <= 1 ? "disabled" : ""}>이전</button>
+      <span class="px-4 py-2 text-sm text-slate-500">${currentPage} / ${totalPages}</span>
+      <button type="button" data-page="next" class="px-4 py-2 rounded-full text-sm border ${currentPage >= totalPages ? "bg-slate-100 text-slate-300 border-slate-100" : "bg-white text-slate-600 border-slate-200 hover:border-indigo-300"}" ${currentPage >= totalPages ? "disabled" : ""}>다음</button>`;
+  }
+
+  function renderCenters() {
+    const filteredCenters = getFilteredCenters();
+    const totalPages = Math.max(1, Math.ceil(filteredCenters.length / PAGE_SIZE));
+    if (currentPage > totalPages) currentPage = totalPages;
+    const pageItems = filteredCenters.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+    visibleCount.textContent = `전체 ${filteredCenters.length}개 기관`;
+    centerList.innerHTML = pageItems.map(createCenterCard).join("");
+    emptyState.classList.toggle("hidden", filteredCenters.length > 0);
+    renderPagination(totalPages);
+  }
+
+  function showLocationHelp(title, message, showRequest = true) {
+    locationHelpTitle.textContent = title;
+    locationHelpMessage.textContent = message;
+    requestLocationBtn.classList.toggle("hidden", !showRequest);
+    locationHelp.classList.remove("hidden");
+  }
+
+  function hideLocationHelp() {
+    locationHelp.classList.add("hidden");
+  }
+
+  function sortBySelectedRegionFallback() {
+    sortMode = "default";
+    userLocation = null;
+    currentPage = 1;
+    if (selectedRegion === "전체") {
+      sortStatus.textContent = "지역을 선택하면 해당 지역 기관을 먼저 볼 수 있어요.";
+      showLocationHelp(
+        "지역 선택이 필요해요",
+        "위치 권한을 사용할 수 없을 때는 서울, 경기, 인천처럼 위의 지역 버튼을 먼저 선택해 주세요.",
+        false
+      );
+      return;
+    }
+    sortStatus.textContent = `${selectedRegion} 지역 기준으로 기관을 보여드려요.`;
+    renderCenters();
+  }
+
+  function requestCurrentLocation() {
+    if (!navigator.geolocation) {
+      sortStatus.textContent = "브라우저에서 위치 권한을 지원하지 않아요.";
+      showLocationHelp(
+        "위치 기능을 지원하지 않아요",
+        "현재 브라우저에서는 위치 기능을 사용할 수 없어 지역 버튼으로 기관을 확인해 주세요.",
+        false
+      );
+      return;
+    }
+
+    if (!window.isSecureContext) {
+      sortStatus.textContent = "보안 연결에서만 위치 권한을 요청할 수 있어요.";
+      showLocationHelp(
+        "위치 권한 창을 띄울 수 없어요",
+        "현재 접속 주소가 http 네트워크 주소라 브라우저가 위치 권한 요청을 막을 수 있어요. 발표용 공유 주소에서는 지역 버튼을 선택해 가까운 기관을 확인해 주세요.",
+        false
+      );
+      return;
+    }
+
+    hideLocationHelp();
+    sortStatus.textContent = "브라우저 권한 창에서 위치 허용을 눌러주세요.";
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        sortMode = "distance";
+        currentPage = 1;
+        sortStatus.textContent = "내 위치 기준 거리순으로 정렬 중";
+        renderCenters();
+      },
+      error => {
+        const denied = error.code === error.PERMISSION_DENIED;
+        sortStatus.textContent = denied
+          ? "위치 권한이 차단되어 있어요."
+          : "현재 위치를 확인하지 못했어요.";
+        showLocationHelp(
+          denied ? "위치 권한이 차단됐어요" : "위치를 확인하지 못했어요",
+          denied
+            ? "브라우저 주소창 왼쪽의 사이트 설정에서 위치 권한을 허용한 뒤 다시 눌러주세요. 급하면 지역 버튼으로도 기관을 볼 수 있어요."
+            : "잠시 후 다시 시도하거나 지역 버튼을 선택해 기관을 확인해 주세요.",
+          !denied
+        );
+      },
+      { enableHighAccuracy: true, timeout: 8000, maximumAge: 300000 }
+    );
+  }
+
+  function setActiveRegionButton(clickedButton) {
+    document.querySelectorAll(".region-btn").forEach(btn => {
+      btn.className = "region-btn bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all";
+      btn.setAttribute("aria-pressed", "false");
+    });
+    clickedButton.className = "region-btn bg-indigo-600 text-white border border-indigo-600 px-4 py-2 rounded-full text-sm font-semibold transition-all";
+    clickedButton.setAttribute("aria-pressed", "true");
+  }
+
+  document.querySelectorAll(".region-btn").forEach(button => {
+    if (button.dataset.region === "전체") setActiveRegionButton(button);
+  });
+
+  document.getElementById("region-filter").addEventListener("click", event => {
+    const button = event.target.closest(".region-btn");
+    if (!button) return;
+    selectedRegion = button.dataset.region;
+    currentPage = 1;
+    setActiveRegionButton(button);
+    renderCenters();
+  });
+
+  searchInput.addEventListener("input", event => {
+    searchKeyword = event.target.value.trim();
+    currentPage = 1;
+    renderCenters();
+  });
+
+  pagination.addEventListener("click", event => {
+    const button = event.target.closest("button[data-page]");
+    if (!button) return;
+    currentPage += button.dataset.page === "next" ? 1 : -1;
+    renderCenters();
+  });
+
+  distanceSortBtn.addEventListener("click", () => {
+    showLocationHelp(
+      "위치 권한이 필요해요",
+      "내 위치와 가까운 기관을 거리순으로 보려면 브라우저 위치 권한을 허용해야 해요.",
+      true
+    );
+  });
+
+  requestLocationBtn.addEventListener("click", requestCurrentLocation);
+  regionFallbackBtn.addEventListener("click", sortBySelectedRegionFallback);
+  locationHelpClose.addEventListener("click", hideLocationHelp);
+
+  resetSortBtn.addEventListener("click", () => {
+    sortMode = "default";
+    userLocation = null;
+    currentPage = 1;
+    sortStatus.textContent = "기본 정렬: 지역, 기관 유형 순";
+    renderCenters();
+  });
+
+  renderCenters();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

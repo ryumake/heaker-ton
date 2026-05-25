@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" crossorigin="anonymous"></script>
+    <style>
+        * { font-family: 'Pretendard', sans-serif; }
+    </style>
+</head>
+<body>
+
+<div class="ui-screen flex items-center justify-center min-h-screen bg-[#e8e4de] p-4">
+    <div id="app" class="relative w-[1440px] min-h-[1024px] bg-[#f7f5f2] rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+        <!-- 상단 네비게이션 -->
+        <div id="header" class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100/70 px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a href="Main.html" class="text-xl font-bold tracking-tight text-slate-800">리턴핏</a>
+                <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-500">
+                    <a href="Self_Inspection1.html" class="text-indigo-600 font-semibold">자가점검</a>
+                    <a href="Job_Posting.html" class="hover:text-indigo-600 transition-colors">채용정보</a>
+          <a href="Recruitment_Information.html" class="hover:text-indigo-600 transition-colors">보조금24</a>
+                    <a href="Trainning.html" class="hover:text-indigo-600 transition-colors">훈련과정</a>
+                    <a href="Support_Agency.html" class="hover:text-indigo-600 transition-colors">도움기관</a>
+                    <a href="Ai_Agent.html" class="hover:text-indigo-600 transition-colors">AI 도우미</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- 메인 컨텐츠 - 기본정보 입력 폼 -->
+        <div id="content" class="flex-1 px-8 pt-8 pb-8 space-y-8">
+
+            <!-- 상단 안내 + 진행바 -->
+            <div id="form-header" class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-2xl font-semibold text-slate-800">기본정보를 알려주세요</h2>
+                    <p class="text-sm text-slate-500 mt-2">맞춤형 추천을 위해 필요한 정보를 수집하고 있어요. 정답은 없으니 편하게 골라주세요.</p>
+                </div>
+                <div class="flex items-center gap-3 text-sm text-slate-400">
+                    <span id="progressText" class="font-medium text-indigo-600">0/4</span>
+                    <div class="w-32 h-1.5 bg-slate-200 rounded-full overflow-hidden">
+                        <div id="progressBar" class="w-0 h-full bg-indigo-500 rounded-full transition-all duration-300"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 폼 카드 -->
+            <div id="form-card" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100 space-y-10">
+
+                <!-- 연령대 -->
+                <div id="field-age" data-select-mode="single" class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <h3 class="text-base font-semibold text-slate-700">연령대</h3>
+                        <span class="text-xs text-slate-400">1개 선택</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <button class="bg-indigo-50 border border-indigo-300 text-indigo-700 px-6 py-3 rounded-full text-sm font-medium transition-all shadow-sm">10대</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">20대</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">30대</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">40대 이상</button>
+                    </div>
+                </div>
+
+                <!-- 거주지역 -->
+                <div id="field-region" data-select-mode="single" class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <h3 class="text-base font-semibold text-slate-700">거주지역</h3>
+                        <span class="text-xs text-slate-400">1개 선택</span>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">서울</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">경기</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">인천</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">부산</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">대구</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">광주</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">대전</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">울산</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">세종</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">강원</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">충북</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">충남</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">전북</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">전남</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">경북</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">경남</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-5 py-2.5 rounded-full text-sm font-medium transition-all">제주</button>
+                    </div>
+                </div>
+
+                <!-- 관심직무 -->
+                <div id="field-job" data-select-mode="multi" class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <h3 class="text-base font-semibold text-slate-700">관심직무</h3>
+                        <span class="text-xs text-slate-400">여러 개 선택 가능</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">사무</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">IT/개발</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">디자인</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">마케팅</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">서비스</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">생산/기술</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">사회복지</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">교육</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">아직 모름</button>
+                    </div>
+                </div>
+
+                <!-- 희망지원 -->
+                <div id="field-support" data-select-mode="multi" class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <h3 class="text-base font-semibold text-slate-700">희망지원</h3>
+                        <span class="text-xs text-slate-400">여러 개 선택 가능</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">채용정보</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">훈련과정</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">상담/마음건강</button>
+                        <button class="bg-white border border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 px-6 py-3 rounded-full text-sm font-medium transition-all">아직 모름</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 액션 버튼 -->
+            <div id="form-actions" class="flex items-center justify-between pt-2">
+                <button id="prevBtn" type="button" class="bg-white border border-slate-200 hover:border-slate-300 active:bg-slate-50 text-slate-600 px-7 py-3.5 rounded-full text-sm font-medium transition-all flex items-center gap-2">이전으로</button>
+                <button id="nextBtn" type="button" class="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white px-10 py-3.5 rounded-full text-sm font-semibold shadow-md transition-all flex items-center gap-2">다음</button>
+            </div>
+
+            <!-- 선택 결과 미리보기 -->
+            <div id="selected-preview" class="hidden bg-indigo-50 border border-indigo-100 rounded-2xl p-5 text-sm text-slate-700"></div>
+
+            <!-- 하단 도움 텍스트 -->
+            <div class="text-center pt-2 pb-2">
+                <p class="text-xs text-slate-400">정보는 맞춤 추천을 위해서만 사용되며, 언제든지 수정할 수 있어요.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const selectedClass = ["bg-indigo-50", "border-indigo-300", "text-indigo-700", "shadow-sm"];
+    const unselectedClass = ["bg-white", "border-slate-200", "text-slate-700"];
+    const hoverClass = ["hover:border-indigo-300", "active:bg-indigo-50"];
+    const BASIC_INFO_SESSION_KEY = "returnfitBasicInfoSessionId";
+    let saveTimer = null;
+    let isRestoring = false;
+    let hasUserInteracted = false;
+
+    function getSessionId() {
+        let sessionId = localStorage.getItem(BASIC_INFO_SESSION_KEY);
+        if (!sessionId) {
+            sessionId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+            localStorage.setItem(BASIC_INFO_SESSION_KEY, sessionId);
+        }
+        return sessionId;
+    }
+
+    function isSelected(button) {
+        return button.classList.contains("border-indigo-300");
+    }
+
+    function setSelected(button, selected) {
+        if (selected) {
+            button.classList.remove(...unselectedClass, ...hoverClass);
+            button.classList.add(...selectedClass);
+            button.setAttribute("aria-pressed", "true");
+        } else {
+            button.classList.remove(...selectedClass);
+            button.classList.add(...unselectedClass, ...hoverClass);
+            button.setAttribute("aria-pressed", "false");
+        }
+    }
+
+    function getFieldValue(fieldId) {
+        const field = document.getElementById(fieldId);
+        return [...field.querySelectorAll("button")]
+            .filter(isSelected)
+            .map((button) => button.textContent.trim());
+    }
+
+    function getFormData() {
+        return {
+            age: getFieldValue("field-age")[0] || "",
+            region: getFieldValue("field-region")[0] || "",
+            jobs: getFieldValue("field-job"),
+            supports: getFieldValue("field-support")
+        };
+    }
+
+    function updateProgress(data = getFormData()) {
+        const progressText = document.getElementById("progressText");
+        const progressBar = document.getElementById("progressBar");
+
+        const total = 4;
+        let completed = 0;
+
+        if (data.age) completed += 1;
+        if (data.region) completed += 1;
+        if (data.jobs.length) completed += 1;
+        if (data.supports.length) completed += 1;
+
+        const percent = (completed / total) * 100;
+
+        progressText.textContent = `${completed}/${total}`;
+        progressBar.style.width = `${percent}%`;
+    }
+
+    function updatePreview() {
+        const preview = document.getElementById("selected-preview");
+        const data = getFormData();
+
+        const hasAny = data.age || data.region || data.jobs.length || data.supports.length;
+        preview.classList.toggle("hidden", !hasAny);
+
+        preview.innerHTML = `
+      <div class="font-semibold text-indigo-700 mb-2">선택한 기본정보</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <p><span class="font-medium text-slate-500">연령대:</span> ${data.age || "미선택"}</p>
+        <p><span class="font-medium text-slate-500">거주지역:</span> ${data.region || "미선택"}</p>
+        <p><span class="font-medium text-slate-500">관심직무:</span> ${data.jobs.length ? data.jobs.join(", ") : "미선택"}</p>
+        <p><span class="font-medium text-slate-500">희망지원:</span> ${data.supports.length ? data.supports.join(", ") : "미선택"}</p>
+      </div>
+    `;
+
+        updateProgress(data);
+        return data;
+    }
+
+    function applySavedBasicInfo(data) {
+        if (!data) return;
+        isRestoring = true;
+        document.querySelectorAll("[data-select-mode] button").forEach((button) => setSelected(button, false));
+
+        const selectValues = (fieldId, values) => {
+            const wanted = new Set((Array.isArray(values) ? values : [values]).filter(Boolean));
+            document.getElementById(fieldId).querySelectorAll("button").forEach((button) => {
+                setSelected(button, wanted.has(button.textContent.trim()));
+            });
+        };
+
+        selectValues("field-age", data.age);
+        selectValues("field-region", data.region);
+        selectValues("field-job", data.jobs || []);
+        selectValues("field-support", data.supports || []);
+        updatePreview();
+        isRestoring = false;
+    }
+
+    async function loadSavedBasicInfo() {
+        const localData = (() => {
+            try {
+                return JSON.parse(localStorage.getItem("returnfitBasicInfo") || "null");
+            } catch {
+                return null;
+            }
+        })();
+
+        if (localData) applySavedBasicInfo(localData);
+
+        try {
+            const surveyResponse = await fetch("http://localhost:5607/api/survey/me");
+            if (surveyResponse.ok) {
+                const surveyData = await surveyResponse.json();
+                if (!hasUserInteracted && surveyData.basicInfo) {
+                    localStorage.setItem("returnfitBasicInfo", JSON.stringify(surveyData.basicInfo));
+                    applySavedBasicInfo(surveyData.basicInfo);
+                    return;
+                }
+            }
+
+            const response = await fetch(`http://localhost:5607/api/basic-info/${encodeURIComponent(getSessionId())}`);
+            if (!response.ok) return;
+            const data = await response.json();
+            if (hasUserInteracted) return;
+            if (data.basicInfo) {
+                localStorage.setItem("returnfitBasicInfo", JSON.stringify(data.basicInfo));
+                applySavedBasicInfo(data.basicInfo);
+            }
+        } catch {
+        }
+    }
+
+    function scheduleSaveBasicInfo() {
+        if (isRestoring) return;
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(saveBasicInfo, 350);
+    }
+
+    async function saveBasicInfo() {
+        const data = getFormData();
+        localStorage.setItem("returnfitBasicInfo", JSON.stringify(data));
+        try {
+            await fetch("http://localhost:5607/api/basic-info", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    sessionId: getSessionId(),
+                    basicInfo: data
+                })
+            });
+            await fetch("http://localhost:5607/api/survey", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ basicInfo: data })
+            });
+        } catch {
+        }
+    }
+
+    document.querySelectorAll("[data-select-mode]").forEach((field) => {
+        const mode = field.dataset.selectMode;
+
+        field.querySelectorAll("button").forEach((button) => {
+            button.type = "button";
+            button.setAttribute("aria-pressed", isSelected(button) ? "true" : "false");
+
+            button.addEventListener("click", () => {
+                hasUserInteracted = true;
+                if (mode === "single") {
+                    field.querySelectorAll("button").forEach((other) => setSelected(other, false));
+                    setSelected(button, true);
+                } else {
+                    setSelected(button, !isSelected(button));
+                }
+
+                updatePreview();
+                scheduleSaveBasicInfo();
+            });
+        });
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", async () => {
+        const data = updatePreview();
+        const missing = [];
+
+        if (!data.age) missing.push("연령대");
+        if (!data.region) missing.push("거주지역");
+        if (!data.jobs.length) missing.push("관심직무");
+        if (!data.supports.length) missing.push("희망지원");
+
+        if (missing.length > 0) {
+            alert(`${missing.join(", ")}을(를) 선택해 주세요.`);
+            return;
+        }
+
+        await saveBasicInfo();
+        location.href = "Self_Inspection2.html";
+    });
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        location.href = "Main.html";
+    });
+
+    updatePreview();
+    loadSavedBasicInfo();
+</script>
+</body>
+</html>

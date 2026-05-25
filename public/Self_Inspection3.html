@@ -1,0 +1,380 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" crossorigin="anonymous"></script>
+  <style> * { font-family: 'Pretendard', sans-serif; } </style>
+</head>
+<body>
+<div class="ui-screen flex items-center justify-center min-h-screen bg-[#e8e4de] p-4">
+  <div id="app" class="relative w-[1440px] min-h-[1024px] bg-[#f7f5f2] rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+    <!-- 상단 네비게이션 -->
+    <div id="header" class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100/70 px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <a href="Main.html" class="text-xl font-bold tracking-tight text-slate-800">리턴핏</a>
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-500">
+          <a href="Self_Inspection1.html" class="text-indigo-600 font-semibold">자가점검</a>
+          <a href="Job_Posting.html" class="hover:text-indigo-600 transition-colors">채용정보</a>
+          <a href="Recruitment_Information.html" class="hover:text-indigo-600 transition-colors">보조금24</a>
+          <a href="Trainning.html" class="hover:text-indigo-600 transition-colors">훈련과정</a>
+          <a href="Support_Agency.html" class="hover:text-indigo-600 transition-colors">도움기관</a>
+          <a href="Ai_Agent.html" class="hover:text-indigo-600 transition-colors">AI 도우미</a>
+        </nav>
+
+      </div>
+    </div>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <div id="content" class="flex-1 px-8 pt-8 pb-8 space-y-8">
+
+      <!-- 페이지 타이틀 + 안내 -->
+      <div id="page-header" class="flex items-start justify-between">
+        <div>
+          <h2 class="text-2xl font-semibold text-slate-800">우울감 체크 PHQ-9</h2>
+          <p class="text-sm text-slate-500 mt-1">지난 2주 동안의 상태를 바탕으로 체크해보세요</p>
+        </div>
+        <div class="flex items-center gap-2 bg-indigo-50 px-4 py-2 rounded-full">
+          <span class="text-sm font-medium text-indigo-700">진행도</span>
+          <span class="text-sm font-bold text-indigo-800">1/9</span>
+        </div>
+      </div>
+
+      <!-- 주의 안내 -->
+      <div id="alert-disclaimer" class="bg-amber-50 border border-amber-200 rounded-2xl p-5 flex items-start gap-4">
+        <div class="w-9 h-9 bg-amber-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+          <i class="fa-solid fa-circle-info text-amber-600"></i>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-amber-800">이 검사는 진단 도구가 아닙니다.</p>
+          <p class="text-xs text-amber-700 mt-1">PHQ-9는 우울감 정도를 스스로 확인해보기 위한 선별 도구입니다. 정확한 진단은 반드시 전문의와 상담하세요.</p>
+        </div>
+      </div>
+
+      <!-- 질문 1 -->
+      <div id="question-1" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-full">1번 문항</span>
+        </div>
+        <p class="text-lg font-medium text-slate-800 mt-3 mb-6">기분이 가라앉거나 우울하거나 희망이 없다고 느낀 날이 있었나요?</p>
+        <div class="grid grid-cols-4 gap-3">
+          <button class="bg-indigo-50 border-2 border-indigo-500 text-indigo-700 px-4 py-3.5 rounded-xl text-sm font-semibold transition-all">없음</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2~6일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">7~12일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">거의 매일</button>
+        </div>
+      </div>
+
+      <!-- 질문 2 -->
+      <div id="question-2" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-full">2번 문항</span>
+        </div>
+        <p class="text-lg font-medium text-slate-800 mt-3 mb-6">평소 하던 일에 흥미나 즐거움이 줄어든 날이 있었나요?</p>
+        <div class="grid grid-cols-4 gap-3">
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2~6일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">7~12일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">거의 매일</button>
+        </div>
+      </div>
+
+      <!-- 질문 3 -->
+      <div id="question-3" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-full">3번 문항</span>
+        </div>
+        <p class="text-lg font-medium text-slate-800 mt-3 mb-6">잠들기 어렵거나 자주 깨거나, 너무 많이 잔 날이 있었나요?</p>
+        <div class="grid grid-cols-4 gap-3">
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2~6일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">7~12일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">거의 매일</button>
+        </div>
+      </div>
+
+      <!-- 질문 4 -->
+      <div id="question-4" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-full">4번 문항</span>
+        </div>
+        <p class="text-lg font-medium text-slate-800 mt-3 mb-6">식욕이 줄거나 평소보다 많이 먹은 날이 있었나요?</p>
+        <div class="grid grid-cols-4 gap-3">
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2~6일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">7~12일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">거의 매일</button>
+        </div>
+      </div>
+
+      <!-- 질문 5 -->
+      <div id="question-5" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-full">5번 문항</span>
+        </div>
+        <p class="text-lg font-medium text-slate-800 mt-3 mb-6">말과 행동이 느려지거나, 반대로 안절부절못한 날이 있었나요?</p>
+        <div class="grid grid-cols-4 gap-3">
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2~6일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">7~12일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">거의 매일</button>
+        </div>
+      </div>
+
+      <!-- 질문 6 -->
+      <div id="question-6" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-full">6번 문항</span>
+        </div>
+        <p class="text-lg font-medium text-slate-800 mt-3 mb-6">피곤하고 기운이 없는 날이 있었나요?</p>
+        <div class="grid grid-cols-4 gap-3">
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2~6일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">7~12일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">거의 매일</button>
+        </div>
+      </div>
+
+      <!-- 질문 7 -->
+      <div id="question-7" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-full">7번 문항</span>
+        </div>
+        <p class="text-lg font-medium text-slate-800 mt-3 mb-6">스스로를 실패했다고 느끼거나 자책한 날이 있었나요?</p>
+        <div class="grid grid-cols-4 gap-3">
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2~6일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">7~12일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">거의 매일</button>
+        </div>
+      </div>
+
+      <!-- 질문 8 -->
+      <div id="question-8" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-full">8번 문항</span>
+        </div>
+        <p class="text-lg font-medium text-slate-800 mt-3 mb-6">일상적인 일에도 집중하기 어려운 날이 있었나요?</p>
+        <div class="grid grid-cols-4 gap-3">
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2~6일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">7~12일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">거의 매일</button>
+        </div>
+      </div>
+
+      <!-- 질문 9 -->
+      <div id="question-9" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xs font-semibold text-indigo-500 bg-indigo-50 px-2.5 py-1 rounded-full">9번 문항</span>
+        </div>
+        <p class="text-lg font-medium text-slate-800 mt-3 mb-6">차라리 사라지고 싶거나 자신을 해치고 싶다는 생각이 든 날이 있었나요?</p>
+        <div class="grid grid-cols-4 gap-3">
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2~6일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">7~12일</button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">거의 매일</button>
+        </div>
+      </div>
+
+
+      <!-- 선택 진행 상태 -->
+      <div id="selection-status" class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <p class="text-sm font-semibold text-slate-700">선택 진행 상태</p>
+          <p id="status-message" class="text-xs text-slate-400 mt-1">각 문항에서 하나씩 선택해주세요.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="w-40 h-2 bg-slate-200 rounded-full overflow-hidden">
+            <div id="progress-fill" class="h-full w-0 bg-indigo-500 rounded-full transition-all"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 하단 액션 버튼 -->
+      <div id="action-area" class="flex justify-between gap-4 pt-2">
+        <button id="prevBtn" type="button" class="bg-white border border-slate-200 hover:border-slate-300 active:bg-slate-50 text-slate-600 px-7 py-3.5 rounded-full text-sm font-medium transition-all flex items-center gap-2">
+          <i class="fa-solid fa-chevron-left text-slate-400 text-xs"></i>
+          이전으로
+        </button>
+        <button class="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white px-10 py-3.5 rounded-full text-sm font-medium shadow-md transition-all flex items-center gap-2">
+          검사 결과 보기
+          <i class="fa-solid fa-chevron-right text-white text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 하단 영역 -->
+    <div class="px-8 pb-6 pt-2 text-center text-xs text-slate-400 border-t border-slate-100 mt-auto">
+      <p>리턴핏 청년 체크인 · PHQ-9 우울감 선별검사</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const totalQuestions = 9;
+    const normalClass = "bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all";
+    const selectedClass = "bg-indigo-50 border-2 border-indigo-500 text-indigo-700 px-4 py-3.5 rounded-xl text-sm font-semibold transition-all shadow-sm ring-2 ring-indigo-100";
+    const questionCards = Array.from(document.querySelectorAll('[id^="question-"]'));
+    const answers = {};
+    const progressBadge = document.querySelector("#page-header .text-sm.font-bold.text-indigo-800");
+    const progressFill = document.getElementById("progress-fill");
+    const statusMessage = document.getElementById("status-message");
+    const prevButton = document.getElementById("prevBtn");
+    const resultButton = document.querySelector("#action-area button:last-child");
+    let saveTimer = null;
+
+    function updateProgress() {
+      const answeredCount = Object.keys(answers).length;
+
+      if (progressBadge) progressBadge.textContent = `${answeredCount}/${totalQuestions}`;
+      if (progressFill) progressFill.style.width = `${(answeredCount / totalQuestions) * 100}%`;
+
+      if (statusMessage) {
+        if (answeredCount === 0) {
+          statusMessage.textContent = "각 문항에서 하나씩 선택해주세요.";
+        } else if (answeredCount < totalQuestions) {
+          statusMessage.textContent = `${totalQuestions - answeredCount}개 문항이 남았어요.`;
+        } else {
+          statusMessage.textContent = "모든 문항을 선택했어요. 결과 확인을 눌러주세요.";
+        }
+      }
+    }
+
+    function setButtonState(button, selected) {
+      button.className = selected ? selectedClass : normalClass;
+      button.setAttribute("aria-pressed", selected ? "true" : "false");
+    }
+
+    async function saveDraft() {
+      localStorage.setItem("returnfitPhq9Draft", JSON.stringify(answers));
+      try {
+        await fetch("http://localhost:5607/api/survey", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ phq9Draft: answers })
+        });
+      } catch {
+      }
+    }
+
+    function scheduleSaveDraft() {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveDraft, 350);
+    }
+
+    function restoreDraft(draft) {
+      if (!draft || typeof draft !== "object") return;
+      Object.entries(draft).forEach(([questionId, score]) => {
+        const card = document.getElementById(questionId);
+        if (!card) return;
+        const buttons = Array.from(card.querySelectorAll("button"));
+        const match = buttons.find(button => Number(button.dataset.score) === Number(score));
+        if (!match) return;
+        buttons.forEach((item) => setButtonState(item, false));
+        setButtonState(match, true);
+        answers[questionId] = Number(score);
+      });
+      updateProgress();
+    }
+
+    async function loadDraft() {
+      try {
+        const localDraft = JSON.parse(localStorage.getItem("returnfitPhq9Draft") || "null");
+        if (localDraft) restoreDraft(localDraft);
+      } catch {
+      }
+      try {
+        const response = await fetch("http://localhost:5607/api/survey/me");
+        if (!response.ok) return;
+        const data = await response.json();
+        if (data.survey?.phq9Draft) {
+          localStorage.setItem("returnfitPhq9Draft", JSON.stringify(data.survey.phq9Draft));
+          restoreDraft(data.survey.phq9Draft);
+        }
+      } catch {
+      }
+    }
+
+    questionCards.forEach((card, questionIndex) => {
+      const buttons = Array.from(card.querySelectorAll("button"));
+      const questionId = card.id;
+      const scoreByButtonIndex = [0, 1, 2, 3];
+
+      buttons.forEach((button, buttonIndex) => {
+        button.type = "button";
+        button.dataset.questionId = questionId;
+        button.dataset.score = String(scoreByButtonIndex[buttonIndex] ?? 0);
+        setButtonState(button, false);
+
+        button.addEventListener("click", function () {
+          buttons.forEach((item) => setButtonState(item, false));
+          setButtonState(button, true);
+
+          answers[questionId] = Number(button.dataset.score);
+          updateProgress();
+          scheduleSaveDraft();
+        });
+      });
+    });
+
+    if (prevButton) {
+      prevButton.addEventListener("click", async function () {
+        await saveDraft();
+        location.href = "Self_Inspection2.html";
+      });
+    }
+
+    if (resultButton) {
+      resultButton.type = "button";
+            resultButton.addEventListener("click", async function () {
+        const unansweredCard = questionCards.find((card) => answers[card.id] === undefined);
+
+        if (unansweredCard) {
+          unansweredCard.scrollIntoView({ behavior: "smooth", block: "center" });
+          unansweredCard.classList.add("ring-2", "ring-amber-300");
+          setTimeout(() => unansweredCard.classList.remove("ring-2", "ring-amber-300"), 1200);
+          alert("아직 선택하지 않은 문항이 있어요. 모든 문항에서 하나씩 선택해주세요.");
+          return;
+        }
+
+        localStorage.setItem("returnfitPhq9Draft", JSON.stringify(answers));
+        
+        try {
+          const response = await fetch("http://localhost:5607/api/survey", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              phq9Draft: answers
+            })
+          });
+          
+          if (!response.ok) {
+            throw new Error("서버 응답 오류");
+          }
+
+          const data = await response.json();
+          if (data.profile?.survey?.phq9Score !== undefined) {
+            localStorage.setItem("returnfitPhq9Score", String(data.profile.survey.phq9Score));
+            localStorage.setItem("returnfitPhq9Guide", data.profile.survey.phq9Guide || "");
+          }
+          
+          location.href = "Self_Inspection_Results.html";
+        } catch (error) {
+          console.error("Survey submission error:", error);
+          alert("결과를 저장하는 중 서버 통신 오류가 발생했습니다. 새로고침 후 다시 시도해주세요.");
+        }
+      });
+    }
+
+    updateProgress();
+    loadDraft();
+  });
+</script>
+
+</body>
+</html>
+
+
+

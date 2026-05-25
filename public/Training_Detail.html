@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>리턴핏 훈련과정 상세</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style>
+    * { font-family: 'Pretendard', sans-serif; }
+    body { margin: 0; }
+  </style>
+</head>
+<body class="bg-[#e8e4de]">
+<div class="ui-screen flex items-center justify-center min-h-screen p-4">
+  <div id="app" class="relative w-full max-w-[1440px] min-h-[1024px] bg-[#f7f5f2] rounded-3xl shadow-2xl overflow-visible flex flex-col">
+    <header id="header" class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100/70 px-8 py-4 flex items-center justify-between rounded-t-3xl">
+      <div class="flex items-center gap-8">
+        <a href="Main.html" class="text-xl font-bold tracking-tight text-slate-800">리턴핏</a>
+        <nav class="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-500">
+          <a href="Self_Inspection1.html" class="hover:text-indigo-600 transition-colors">자가점검</a>
+          <a href="Job_Posting.html" class="hover:text-indigo-600 transition-colors">채용정보</a>
+          <a href="Recruitment_Information.html" class="hover:text-indigo-600 transition-colors">보조금24</a>
+          <a href="Trainning.html" class="text-indigo-600 font-semibold">훈련과정</a>
+          <a href="Support_Agency.html" class="hover:text-indigo-600 transition-colors">도움기관</a>
+          <a href="Ai_Agent.html" class="hover:text-indigo-600 transition-colors">AI 도우미</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="flex-1 px-8 pt-8 pb-8 space-y-6">
+      <section id="detail" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100"></section>
+    </main>
+  </div>
+</div>
+<script>
+  const fallbackTraining = {
+    title: "훈련과정 정보",
+    school: "훈련기관",
+    region: "-",
+    period: "-",
+    cost: "-",
+    phone: "-",
+    address: "-",
+    tags: [],
+    description: "훈련과정 목록에서 과정을 선택하면 상세 정보를 볼 수 있어요."
+  };
+
+  const training = JSON.parse(localStorage.getItem("returnfitSelectedTraining") || "null") || fallbackTraining;
+  const tagHtml = (training.tags || []).map(tag => `<span class="bg-indigo-50 text-indigo-700 text-xs px-3 py-1 rounded-full">${tag}</span>`).join("");
+
+  document.getElementById("detail").innerHTML = `
+    <div class="flex items-center justify-between gap-4 flex-wrap mb-6">
+      <div>
+        <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-semibold px-4 py-1.5 rounded-full mb-4">${training.region}</span>
+        <h2 class="text-3xl font-semibold text-slate-800 leading-snug">${training.title}</h2>
+        <p class="text-base text-slate-500 mt-2">${training.school}</p>
+      </div>
+      <a href="Trainning.html" class="bg-white border border-slate-200 hover:border-indigo-300 text-slate-600 px-5 py-2.5 rounded-full text-sm font-medium transition-all">목록으로</a>
+    </div>
+
+    <p class="text-sm text-slate-600 leading-relaxed mb-6">${training.description}</p>
+    <div class="flex flex-wrap gap-2 mb-8">${tagHtml}</div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100">
+        <p class="text-xs text-slate-400 mb-1">훈련기간</p>
+        <p class="text-sm font-semibold text-slate-700">${training.period}</p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100">
+        <p class="text-xs text-slate-400 mb-1">지원유형</p>
+        <p class="text-sm font-semibold text-slate-700">${training.cost}</p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100">
+        <p class="text-xs text-slate-400 mb-1">문의</p>
+        <p class="text-sm font-semibold text-slate-700">${training.phone}</p>
+      </div>
+      <div class="bg-slate-50 rounded-2xl p-5 border border-slate-100">
+        <p class="text-xs text-slate-400 mb-1">주소</p>
+        <p class="text-sm font-semibold text-slate-700">${training.address}</p>
+      </div>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a href="tel:${String(training.phone).replaceAll('-', '')}" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full text-sm font-semibold transition-all">전화 문의</a>
+      <a href="Trainning.html" class="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-6 py-3 rounded-full text-sm font-semibold transition-all">다른 과정 보기</a>
+    </div>
+  `;
+</script>
+</body>
+</html>

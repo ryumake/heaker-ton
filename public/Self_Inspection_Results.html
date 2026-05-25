@@ -1,0 +1,219 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" crossorigin="anonymous"></script>
+  <style> * { font-family: 'Pretendard', sans-serif; } </style>
+</head>
+
+<div class="ui-screen flex items-center justify-center min-h-screen bg-[#e8e4de] p-4">
+  <div id="app" class="relative w-[1440px] min-h-[1024px] bg-[#f7f5f2] rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+    <!-- 상단 네비게이션 -->
+    <div id="header" class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100/70 px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <a href="Main.html" class="text-xl font-bold tracking-tight text-slate-800">리턴핏</a>
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-500">
+          <a href="Self_Inspection1.html" class="text-indigo-600 font-semibold">자가점검</a>
+          <a href="Job_Posting.html" class="hover:text-indigo-600 transition-colors">채용정보</a>
+          <a href="Recruitment_Information.html" class="hover:text-indigo-600 transition-colors">보조금24</a>
+          <a href="Trainning.html" class="hover:text-indigo-600 transition-colors">훈련과정</a>
+          <a href="Support_Agency.html" class="hover:text-indigo-600 transition-colors">도움기관</a>
+          <a href="Ai_Agent.html" class="hover:text-indigo-600 transition-colors">AI 도우미</a>
+        </nav>
+
+      </div>
+    </div>
+
+    <!-- 메인 컨텐츠 – 종합 결과 화면 -->
+    <div id="content" class="flex-1 px-8 pt-8 pb-8 space-y-8">
+
+      <!-- 결과 히어로: 자가점검 종합 결과 -->
+      <div id="result-hero" class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-8 shadow-sm border border-emerald-100/40 flex items-start justify-between">
+        <div class="max-w-3xl">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full">자가점검 완료</span>
+            <span class="text-slate-400 text-sm">2026.03</span>
+          </div>
+          <h2 class="text-3xl font-semibold text-slate-800 leading-snug mb-3">당신은 <span class="text-emerald-600">‘재진입 준비형’</span> 입니다</h2>
+          <p class="text-base text-slate-600 leading-relaxed mb-6 max-w-2xl">구직 재진입 의지가 뚜렷하고, 직무 탐색도 활발히 할 수 있는 상태예요. 우울감 지표는 안정적이며, 지금 바로 실질적인 채용 정보와 직무 추천을 받아보는 것을 추천드려요.</p>
+          <div class="flex flex-wrap gap-3">
+            <button type="button" onclick="location.href='Job_Posting.html'" class="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white px-6 py-3.5 rounded-full text-sm font-medium shadow-md transition-all flex items-center gap-2"><i class="fa-regular fa-briefcase text-white"></i> 맞춤 채용정보 보기</button>
+            <button type="button" onclick="location.href='Self_Inspection1.html'" class="bg-white hover:bg-slate-50 active:bg-slate-100 border border-slate-200 text-slate-600 px-5 py-3.5 rounded-full text-sm font-medium transition-all flex items-center gap-2"><i class="fa-solid fa-user-pen text-slate-400"></i> 기본정보 수정</button>
+            <button type="button" onclick="location.href='Self_Inspection2.html'" class="bg-white hover:bg-slate-50 active:bg-slate-100 border border-slate-200 text-slate-600 px-5 py-3.5 rounded-full text-sm font-medium transition-all flex items-center gap-2"><i class="fa-regular fa-clipboard text-slate-400"></i> 구직 체크 수정</button>
+            <button type="button" onclick="location.href='Self_Inspection3.html'" class="bg-amber-50 hover:bg-amber-100 active:bg-amber-200 border border-amber-200 text-amber-700 px-5 py-3.5 rounded-full text-sm font-medium transition-all flex items-center gap-2"><i class="fa-regular fa-face-smile text-amber-500"></i> 우울감 체크 수정</button>
+          </div>
+        </div>
+        <!-- 결과 아이콘: 종합 결과를 상징 -->
+        <div class="hidden lg:flex items-center justify-center w-48 h-48 bg-emerald-100/60 rounded-full">
+          <i class="fa-regular fa-circle-check text-emerald-300 text-7xl"></i>
+        </div>
+      </div>
+
+      <!-- 상세 지표 섹션 (2열 그리드) -->
+      <div class="grid grid-cols-2 gap-6">
+        <!-- 구직 재진입 체크 결과 -->
+        <div id="reentry-result" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+          <div class="flex items-center gap-2 mb-1">
+            <i class="fa-regular fa-clipboard text-blue-600"></i>
+            <h3 class="text-base font-semibold text-slate-700">구직 재진입 체크</h3>
+          </div>
+          <p class="text-xs text-slate-400 mb-3">2026.03 기준</p>
+          <div class="flex items-baseline gap-3 mb-4">
+            <span class="text-3xl font-bold text-blue-600">82</span>
+            <span class="text-sm text-slate-500">/ 100</span>
+            <span class="bg-blue-50 text-blue-700 text-xs px-2.5 py-1 rounded-full ml-auto">높음</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2 mb-3">
+            <div class="bg-blue-500 h-2 rounded-full" style="width: 82%"></div>
+          </div>
+          <p class="text-sm text-slate-500">재취업 준비 상태가 양호합니다. 정보 탐색 단계로 넘어가세요.</p>
+        </div>
+
+        <!-- 우울감 자가점검 (PHQ-9) 결과 -->
+        <div id="phq9-result" class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+          <div class="flex items-center gap-2 mb-1">
+            <i class="fa-regular fa-face-smile text-teal-600"></i>
+            <h3 class="text-base font-semibold text-slate-700">우울감 자가점검</h3>
+          </div>
+          <p class="text-xs text-slate-400 mb-3">PHQ-9 기반</p>
+          <div class="flex items-baseline gap-3 mb-4">
+            <span class="text-3xl font-bold text-teal-600">4</span>
+            <span class="text-sm text-slate-500">/ 27</span>
+            <span class="bg-teal-50 text-teal-700 text-xs px-2.5 py-1 rounded-full ml-auto">안정</span>
+          </div>
+          <div class="w-full bg-slate-100 rounded-full h-2 mb-3">
+            <div class="bg-teal-400 h-2 rounded-full" style="width: 15%"></div>
+          </div>
+          <p class="text-sm text-slate-500">우울감 지표가 낮아 일상 기능에 무리가 없는 상태입니다.</p>
+        </div>
+      </div>
+      <!-- 하단 영역 (기존 스타일 유지) -->
+      <div class="px-8 pb-6 pt-2 text-center text-xs text-slate-400 border-t border-slate-100 mt-auto">
+        <p>리턴핏 청년 체크인 · 쉬었음 청년과 구직 재진입 청년을 위한 지원 연결 서비스</p>
+      </div>
+    </div>
+  </div>
+
+<script>
+  function readJsonStorage(key, fallback) {
+    try {
+      return JSON.parse(localStorage.getItem(key)) || fallback;
+    } catch {
+      return fallback;
+    }
+  }
+
+  function getReentryLevel(score) {
+    if (score >= 75) {
+      return {
+        type: "재진입 준비형",
+        level: "높음",
+        text: "구직 재진입을 시작할 준비가 비교적 잘 되어 있어요. 관심 직무를 좁히고 실제 채용정보와 훈련과정을 함께 확인해보세요.",
+        badgeClass: "bg-blue-50 text-blue-700",
+        barClass: "bg-blue-500"
+      };
+    }
+    if (score >= 50) {
+      return {
+        type: "단계적 준비형",
+        level: "보통",
+        text: "바로 지원하기보다 생활 리듬, 관심 직무, 필요한 훈련을 함께 정리하면 좋아요. 작은 구직 행동부터 시작해보세요.",
+        badgeClass: "bg-amber-50 text-amber-700",
+        barClass: "bg-amber-400"
+      };
+    }
+    return {
+      type: "지원 연결 우선형",
+      level: "낮음",
+      text: "혼자 바로 구직을 시작하기보다 상담기관이나 청년 지원기관과 먼저 연결해 준비 부담을 줄이는 것을 추천해요.",
+      badgeClass: "bg-rose-50 text-rose-700",
+      barClass: "bg-rose-400"
+    };
+  }
+
+  function getPhqLevel(score) {
+    if (score >= 20) return { label: "긴급 점검", text: "우울감 점수가 매우 높아요. 혼자 견디기보다 109, 1577-0199 또는 가까운 정신건강복지센터에 바로 연결해보세요.", bar: 100, badge: "bg-rose-50 text-rose-700", color: "text-rose-600", barClass: "bg-rose-400" };
+    if (score >= 10) return { label: "상담 권장", text: "우울감이 뚜렷하게 나타날 수 있는 구간이에요. 구직 준비와 함께 상담기관 연결을 우선 확인해보세요.", bar: Math.round((score / 27) * 100), badge: "bg-orange-50 text-orange-700", color: "text-orange-600", barClass: "bg-orange-400" };
+    if (score >= 5) return { label: "관심 필요", text: "가벼운 우울감 신호가 있을 수 있어요. 수면, 생활 리듬, 상담 가능 기관을 함께 점검해보세요.", bar: Math.round((score / 27) * 100), badge: "bg-amber-50 text-amber-700", color: "text-amber-600", barClass: "bg-amber-400" };
+    return { label: "안정", text: "우울감 지표가 낮아 일상 기능에 큰 무리가 없는 상태로 보여요.", bar: Math.round((score / 27) * 100), badge: "bg-teal-50 text-teal-700", color: "text-teal-600", barClass: "bg-teal-400" };
+  }
+
+  document.addEventListener("DOMContentLoaded", async function () {
+    let survey = {};
+    try {
+      const response = await fetch("http://localhost:5607/api/survey/me");
+      if (response.ok) {
+        const data = await response.json();
+        survey = data.survey || {};
+      }
+    } catch {}
+
+    if (!survey.reentryResult) {
+      try {
+        const localReentry = localStorage.getItem("returnfitReentryResult");
+        if (localReentry) survey.reentryResult = JSON.parse(localReentry);
+      } catch {}
+    }
+    
+    if (survey.phq9Score === undefined) {
+      try {
+        const localPhq9 = localStorage.getItem("returnfitPhq9Score");
+        if (localPhq9) survey.phq9Score = Number(localPhq9);
+        const localGuide = localStorage.getItem("returnfitPhq9Guide");
+        if (localGuide) survey.phq9Guide = localGuide;
+      } catch {}
+    }
+
+    const reentryResult = survey.reentryResult || null;
+    const phqScore = Number(survey.phq9Score || 0);
+    const phqGuide = survey.phq9Guide || "";
+    
+    const hasReentryResult = reentryResult && reentryResult.readinessScore !== undefined;
+    const readinessScore = hasReentryResult ? Number(reentryResult.readinessScore) : 0;
+    const reentry = getReentryLevel(readinessScore);
+    const phq = getPhqLevel(phqScore);
+    const combinedType = !hasReentryResult ? "자가점검 진행 중" : phqScore >= 15 ? "마음돌봄 우선형" : reentry.type;
+    const heroText = !hasReentryResult
+      ? "구직 재진입 체크가 아직 완료되지 않았어요. 이전 단계로 돌아가 문항을 완료하면 정확한 준비도 점수가 계산됩니다."
+      : phqScore >= 15
+      ? "마음 상태를 먼저 돌보면서 구직 준비를 천천히 이어가는 것이 좋아요. 급하거나 위험하다고 느껴지면 긴급 상담번호를 먼저 이용해 주세요."
+      : reentry.text;
+
+    const date = new Date(reentryResult?.completedAt || Date.now());
+    const dateText = `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}`;
+
+    document.querySelector("#result-hero .text-slate-400.text-sm").textContent = dateText;
+    document.querySelector("#result-hero h2").innerHTML = `당신은 <span class="text-emerald-600">‘${combinedType}’</span> 입니다`;
+    document.querySelector("#result-hero p.text-base").textContent = heroText;
+
+    const reentryCard = document.getElementById("reentry-result");
+    reentryCard.querySelector(".text-xs.text-slate-400").textContent = `${dateText} 기준`;
+    reentryCard.querySelector(".text-3xl").textContent = hasReentryResult ? readinessScore : "-";
+    const reentryBadge = reentryCard.querySelector(".rounded-full.ml-auto");
+    reentryBadge.textContent = hasReentryResult ? reentry.level : "미완료";
+    reentryBadge.className = `${reentry.badgeClass} text-xs px-2.5 py-1 rounded-full ml-auto`;
+    const reentryBar = reentryCard.querySelector(".w-full.bg-slate-100 .h-2.rounded-full");
+    reentryBar.style.width = `${hasReentryResult ? readinessScore : 0}%`;
+    reentryBar.className = `${reentry.barClass} h-2 rounded-full`;
+    reentryCard.querySelector("p.text-sm.text-slate-500").textContent = hasReentryResult
+      ? `${reentry.text} 산식: (최대 위험점수 ${reentryResult.maxRiskScore}점 - 위험점수 ${reentryResult.riskScore}점) / 최대 위험점수 × 100`
+      : "구직 재진입 체크를 완료하면 준비도 점수가 표시됩니다.";
+
+    const phqCard = document.getElementById("phq9-result");
+    const phqScoreEl = phqCard.querySelector(".text-3xl");
+    phqScoreEl.textContent = phqScore;
+    phqScoreEl.className = `text-3xl font-bold ${phq.color}`;
+    const phqBadge = phqCard.querySelector(".rounded-full.ml-auto");
+    phqBadge.textContent = phq.label;
+    phqBadge.className = `${phq.badge} text-xs px-2.5 py-1 rounded-full ml-auto`;
+    const phqBar = phqCard.querySelector(".w-full.bg-slate-100 .h-2.rounded-full");
+    phqBar.style.width = `${Math.min(100, phq.bar)}%`;
+    phqBar.className = `${phq.barClass} h-2 rounded-full`;
+    phqCard.querySelector("p.text-sm.text-slate-500").textContent = phqGuide || phq.text;
+  });
+</script>
+</html>
+
+
+

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>리턴핏 구직 재진입 체크</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4" crossorigin="anonymous"></script>
+  <style> * { font-family: 'Pretendard', sans-serif; } </style>
+</head>
+<body>
+<div class="ui-screen flex items-center justify-center min-h-screen bg-[#e8e4de] p-4">
+  <div id="app" class="relative w-[1440px] min-h-[1024px] bg-[#f7f5f2] rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+    <!-- 상단 네비게이션 -->
+    <div id="header" class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100/70 px-8 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <a href="Main.html" class="text-xl font-bold tracking-tight text-slate-800">리턴핏</a>
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-500">
+          <a href="Self_Inspection1.html" class="text-indigo-600 font-semibold">자가점검</a>
+          <a href="Job_Posting.html" class="hover:text-indigo-600 transition-colors">채용정보</a>
+          <a href="Recruitment_Information.html" class="hover:text-indigo-600 transition-colors">보조금24</a>
+          <a href="Trainning.html" class="hover:text-indigo-600 transition-colors">훈련과정</a>
+          <a href="Support_Agency.html" class="hover:text-indigo-600 transition-colors">도움기관</a>
+          <a href="Ai_Agent.html" class="hover:text-indigo-600 transition-colors">AI 도우미</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <div id="content" class="flex-1 px-8 pt-8 pb-8 space-y-8">
+
+      <!-- 페이지 타이틀 + 진행 상황 -->
+      <div id="page-header" class="flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-semibold text-slate-800">구직단념청년 집중취업지원 필요도 체크</h2>
+          <p class="text-sm text-slate-500 mt-1">5개 영역으로 나누어 현재 상황을 확인해보세요</p>
+        </div>
+        <div class="flex items-center gap-2 bg-indigo-50 px-4 py-2 rounded-full">
+          <span class="text-sm font-medium text-indigo-700">진행도</span>
+          <span class="text-sm font-bold text-indigo-800">1/5</span>
+        </div>
+      </div>
+
+      <!-- 교육이력 영역 -->
+      <div id="section-education" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+            <i class="fa-solid fa-graduation-cap text-blue-600 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-700">교육이력</h3>
+        </div>
+        <p class="text-base text-slate-700 mb-5">최근 2년 이내 대학이나 대학원에 다니거나 진학을 준비한 적이 있나요?</p>
+        <div class="flex gap-4">
+          <button class="bg-white border-2 border-indigo-500 text-indigo-700 px-8 py-3.5 rounded-xl text-sm font-semibold transition-all flex-1 flex items-center justify-center gap-2">
+            <i class="fa-regular fa-circle-xmark text-indigo-500"></i>아니오
+            <span class="text-xs text-indigo-400 font-normal ml-1">(1점)</span>
+          </button>
+          <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">
+            <i class="fa-regular fa-circle-check"></i>예
+            <span class="text-xs text-slate-400 font-normal ml-1">(0점)</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 구직욕구 영역 -->
+      <div id="section-desire" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-teal-100 rounded-xl flex items-center justify-center">
+            <i class="fa-solid fa-bullseye text-teal-600 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-700">구직욕구</h3>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <p class="text-base text-slate-700 mb-4">희망 임금보다 낮더라도 취업할 의사가 있나요?</p>
+            <div class="flex gap-4">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-circle-check"></i>예
+              </button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-circle-xmark"></i>아니요
+              </button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">하루 4시간 이상 근로를 희망하나요?</p>
+            <div class="flex gap-4">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-clock"></i>4시간 이상
+              </button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-clock"></i>4시간 미만
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 생활환경 영역 -->
+      <div id="section-environment" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center">
+            <i class="fa-solid fa-house-chimney text-amber-600 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-700">생활환경</h3>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <p class="text-base text-slate-700 mb-4">현재 생활비는 주로 어떻게 마련하고 있나요?</p>
+            <div class="flex gap-4">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-people-group"></i>부모·친지 등 주변 도움
+              </button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">
+                <i class="fa-regular fa-wallet"></i>본인 소득
+              </button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">본인 소득 없이 주변 도움으로 생활한 기간은 어느 정도인가요?</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">2년 이상</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">6개월~2년 미만</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">6개월 미만</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">하루 동안 가장 많은 시간을 보내는 사람은 누구인가요?</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all"><i class="fa-regular fa-user mr-1"></i>없음 또는 혼자</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all"><i class="fa-regular fa-handshake mr-1"></i>친구</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all"><i class="fa-regular fa-house-chimney mr-1"></i>가족</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">낮 시간에 별다른 일 없이 혼자 보내는 시간이 어느 정도인가요?</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">6시간 이상</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">4~6시간 미만</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">3시간 이하</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">게임, TV, 영상 시청 등으로 보내는 시간이 어느 정도인가요?</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">6시간 이상</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">4~6시간 미만</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">3시간 이하</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">한 달 중 취미나 관심 활동에 참여하는 횟수는 어느 정도인가요?</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">1~2회</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">3회 이상</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 직업이력 영역 -->
+      <div id="section-history" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center">
+            <i class="fa-solid fa-briefcase text-violet-600 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-700">직업이력</h3>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <p class="text-base text-slate-700 mb-4">최근 2년 이내 자격증을 취득하거나 시험을 본 경험이 있나요?</p>
+            <div class="flex gap-4">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">아니오</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">예</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">최근 2년 이내 일을 한 경험이 있나요?</p>
+            <div class="flex gap-4">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">없음</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">있음</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">최근 2년 이내 취업지원 프로그램에 참여한 적이 있나요?</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">1~2회</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">3회 이상</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">최근 2년 이내 가사 또는 육아를 전담한 적이 있나요?</p>
+            <div class="flex gap-4">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">아니오</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-8 py-3.5 rounded-xl text-sm font-medium transition-all flex-1 flex items-center justify-center gap-2">예</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 구직활동 영역 -->
+      <div id="section-activity" class="bg-white rounded-3xl p-8 shadow-sm border border-slate-100">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 bg-rose-100 rounded-xl flex items-center justify-center">
+            <i class="fa-solid fa-magnifying-glass text-rose-600 text-lg"></i>
+          </div>
+          <h3 class="text-lg font-semibold text-slate-700">구직활동</h3>
+        </div>
+        <div class="space-y-6">
+          <div>
+            <p class="text-base text-slate-700 mb-4">최근 2년 이내 취업박람회나 직업정보 행사에 참여한 적이 있나요?</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">1~2회</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">3회 이상</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">최근 2년 이내 일자리센터나 직업소개기관에 방문한 적이 있나요?</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">1~2회</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">3회 이상</button>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-slate-700 mb-4">최근 2년 이내 직업심리검사를 해본 적이 있나요?</p>
+            <div class="grid grid-cols-3 gap-3">
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">없음</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">1~2회</button>
+              <button class="bg-slate-50 border-2 border-slate-200 hover:border-indigo-300 text-slate-600 px-4 py-3.5 rounded-xl text-sm font-medium transition-all">3회 이상</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 선택 진행 상태 -->
+      <div id="selection-status" class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex items-center justify-between">
+        <div>
+          <p class="text-sm font-semibold text-slate-700">선택 진행 상태</p>
+          <p id="selection-message" class="text-xs text-slate-400 mt-1">아직 선택하지 않은 문항이 있어요.</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <span id="selection-count" class="text-sm font-bold text-indigo-700">0/16</span>
+          <div class="w-40 h-2 bg-slate-100 rounded-full overflow-hidden">
+            <div id="selection-progress-bar" class="h-full w-0 bg-indigo-500 rounded-full transition-all"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 하단 액션 버튼 -->
+      <div id="action-area" class="flex justify-between gap-4 pt-2">
+        <button id="prevBtn" type="button" class="bg-white border border-slate-200 hover:border-slate-300 active:bg-slate-50 text-slate-600 px-7 py-3.5 rounded-full text-sm font-medium transition-all flex items-center gap-2">
+          <i class="fa-solid fa-chevron-left text-slate-400 text-xs"></i>
+          이전으로
+        </button>
+        <button class="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white px-10 py-3.5 rounded-full text-sm font-medium shadow-md transition-all flex items-center gap-2">
+          다음 영역으로 이동
+          <i class="fa-solid fa-chevron-right text-white text-xs"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- 하단 영역 -->
+    <div class="px-8 pb-6 pt-2 text-center text-xs text-slate-400 border-t border-slate-100 mt-auto">
+      <p>리턴핏 청년 체크인 · 구직단념청년 집중취업지원 필요도 문답표 기반</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const selectedClasses = [
+      "bg-indigo-50",
+      "border-indigo-500",
+      "text-indigo-700",
+      "shadow-sm",
+      "ring-2",
+      "ring-indigo-100"
+    ];
+
+    const unselectedClasses = [
+      "bg-slate-50",
+      "border-slate-200",
+      "text-slate-600"
+    ];
+
+    const classesToRemove = [
+      "bg-white",
+      "bg-slate-50",
+      "bg-indigo-50",
+      "border-slate-200",
+      "border-indigo-300",
+      "border-indigo-500",
+      "text-slate-600",
+      "text-indigo-700",
+      "shadow-sm",
+      "ring-2",
+      "ring-indigo-100"
+    ];
+
+    const questionGroups = Array.from(
+      document.querySelectorAll(
+        "#content #section-education .flex.gap-4, " +
+        "#content #section-desire .flex.gap-4, " +
+        "#content #section-environment .flex.gap-4, " +
+        "#content #section-environment .grid.grid-cols-3, " +
+        "#content #section-history .flex.gap-4, " +
+        "#content #section-history .grid.grid-cols-3, " +
+        "#content #section-activity .grid.grid-cols-3"
+      )
+    ).filter(function (group) {
+      return group.querySelectorAll("button").length >= 2;
+    });
+
+    const progressText = document.querySelector("#page-header .text-sm.font-bold.text-indigo-800");
+    const countText = document.getElementById("selection-count");
+    const message = document.getElementById("selection-message");
+    const progressBar = document.getElementById("selection-progress-bar");
+    const prevButton = document.getElementById("prevBtn");
+    const nextButton = document.querySelector("#action-area button:last-child");
+    let saveTimer = null;
+
+    function setButtonState(button, isSelected) {
+      button.classList.remove(...classesToRemove);
+
+      if (isSelected) {
+        button.classList.add(...selectedClasses);
+        button.setAttribute("aria-pressed", "true");
+
+        const icon = button.querySelector("i");
+        if (icon) {
+          icon.classList.remove("text-slate-400", "text-slate-500", "text-slate-600");
+          icon.classList.add("text-indigo-500");
+        }
+      } else {
+        button.classList.add(...unselectedClasses);
+        button.classList.remove("shadow-sm");
+        button.setAttribute("aria-pressed", "false");
+
+        const icon = button.querySelector("i");
+        if (icon) {
+          icon.classList.remove("text-indigo-500");
+          icon.classList.add("text-slate-500");
+        }
+      }
+    }
+
+    function updateProgress() {
+      const selectedCount = questionGroups.filter(function (group) {
+        return group.dataset.selectedValue;
+      }).length;
+
+      const total = questionGroups.length;
+      const percent = total === 0 ? 0 : Math.round((selectedCount / total) * 100);
+
+      if (progressText) {
+        progressText.textContent = selectedCount + "/" + total;
+      }
+
+      if (countText) {
+        countText.textContent = selectedCount + "/" + total;
+      }
+
+      if (progressBar) {
+        progressBar.style.width = percent + "%";
+      }
+
+      if (message) {
+        if (selectedCount === total) {
+          message.textContent = "모든 문항을 선택했어요. 다음 단계로 이동할 수 있어요.";
+          message.className = "text-xs text-indigo-500 mt-1 font-medium";
+        } else {
+          message.textContent = "아직 " + (total - selectedCount) + "개 문항이 남아 있어요.";
+          message.className = "text-xs text-slate-400 mt-1";
+        }
+      }
+
+      if (nextButton) {
+        if (selectedCount === total) {
+          nextButton.classList.remove("opacity-60");
+          nextButton.classList.add("shadow-lg");
+        } else {
+          nextButton.classList.add("opacity-60");
+          nextButton.classList.remove("shadow-lg");
+        }
+      }
+    }
+
+    function getDraft() {
+      return questionGroups.map(function (group) {
+        return {
+          question: group.dataset.questionGroup,
+          answer: group.dataset.selectedValue || "",
+          buttonIndex: Number(group.dataset.buttonIndex || 0)
+        };
+      });
+    }
+
+    async function saveDraft() {
+      const draft = getDraft();
+      localStorage.setItem("returnfitReentryDraft", JSON.stringify(draft));
+      try {
+        await fetch("http://localhost:5607/api/survey", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ reentryDraft: draft })
+        });
+      } catch {
+      }
+    }
+
+    function scheduleSaveDraft() {
+      clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveDraft, 350);
+    }
+
+    function restoreDraft(draft) {
+      if (!Array.isArray(draft)) return;
+      draft.forEach(function (item, index) {
+        const group = questionGroups[index];
+        if (!group || !item.answer) return;
+        const buttons = Array.from(group.querySelectorAll("button"));
+        const match = buttons.find(button => button.textContent.trim().replace(/\s+/g, " ") === item.answer);
+        if (!match) return;
+        buttons.forEach(button => setButtonState(button, false));
+        setButtonState(match, true);
+        group.dataset.selectedValue = item.answer;
+        group.dataset.buttonIndex = String(item.buttonIndex || 0);
+      });
+      updateProgress();
+    }
+
+    async function loadDraft() {
+      try {
+        const localDraft = JSON.parse(localStorage.getItem("returnfitReentryDraft") || "null");
+        if (localDraft) restoreDraft(localDraft);
+      } catch {
+      }
+      try {
+        const response = await fetch("http://localhost:5607/api/survey/me");
+        if (!response.ok) return;
+        const data = await response.json();
+        if (data.survey?.reentryDraft) {
+          localStorage.setItem("returnfitReentryDraft", JSON.stringify(data.survey.reentryDraft));
+          restoreDraft(data.survey.reentryDraft);
+        }
+      } catch {
+      }
+    }
+
+    questionGroups.forEach(function (group, groupIndex) {
+      group.dataset.questionGroup = String(groupIndex + 1);
+
+      const buttons = Array.from(group.querySelectorAll("button"));
+      buttons.forEach(function (button) {
+        button.type = "button";
+        button.setAttribute("aria-pressed", "false");
+        setButtonState(button, false);
+
+        button.addEventListener("click", function () {
+          buttons.forEach(function (otherButton) {
+            setButtonState(otherButton, false);
+          });
+
+          setButtonState(button, true);
+          group.dataset.selectedValue = button.textContent.trim().replace(/\s+/g, " ");
+          group.dataset.buttonIndex = String(buttons.indexOf(button));
+          updateProgress();
+          scheduleSaveDraft();
+        });
+      });
+    });
+
+    if (prevButton) {
+      prevButton.addEventListener("click", async function () {
+        await saveDraft();
+        location.href = "Self_Inspection1.html";
+      });
+    }
+
+    if (nextButton) {
+      nextButton.type = "button";
+      nextButton.addEventListener("click", async function () {
+        const firstUnanswered = questionGroups.find(function (group) {
+          return !group.dataset.selectedValue;
+        });
+
+        if (firstUnanswered) {
+          firstUnanswered.closest(".bg-white")?.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+          firstUnanswered.classList.add("ring-2", "ring-amber-200", "rounded-2xl");
+          setTimeout(function () {
+            firstUnanswered.classList.remove("ring-2", "ring-amber-200", "rounded-2xl");
+          }, 1200);
+
+          alert("아직 선택하지 않은 문항이 있어요. 표시된 문항을 먼저 선택해 주세요.");
+          return;
+        }
+
+        const answers = questionGroups.map(function (group) {
+          return {
+            question: group.dataset.questionGroup,
+            answer: group.dataset.selectedValue,
+            buttonIndex: Number(group.dataset.buttonIndex || 0)
+          };
+        });
+
+        localStorage.setItem("returnfitReentryDraft", JSON.stringify(answers));
+        try {
+          const response = await fetch("http://localhost:5607/api/survey", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              reentryDraft: answers
+            })
+          });
+
+          if (!response.ok) {
+            throw new Error("서버 응답 오류");
+          }
+
+          const data = await response.json();
+          if (data.profile?.survey?.reentryResult) {
+            localStorage.setItem("returnfitReentryResult", JSON.stringify(data.profile.survey.reentryResult));
+          }
+
+          location.href = "Self_Inspection3.html";
+        } catch (error) {
+          console.error("Survey submission error:", error);
+          alert("결과를 저장하는 중 서버 통신 오류가 발생했습니다. 새로고침 후 다시 시도해주세요.");
+        }
+      });
+    }
+
+    updateProgress();
+    loadDraft();
+  });
+</script>
+
+</body>
+</html>

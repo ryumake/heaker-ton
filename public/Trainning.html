@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>리턴핏 훈련과정</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="returnfit-api-config.js"></script>
+  <script src="returnfit-recommendations.js"></script>
+  <style>
+    * { font-family: 'Pretendard', sans-serif; }
+    body { margin: 0; }
+  </style>
+</head>
+<body class="bg-[#e8e4de]">
+<div class="ui-screen flex items-center justify-center min-h-screen p-4">
+  <div id="app" class="relative w-full max-w-[1440px] min-h-[1024px] bg-[#f7f5f2] rounded-3xl shadow-2xl overflow-visible flex flex-col">
+    <header id="header" class="sticky top-0 z-30 bg-white/90 backdrop-blur-md border-b border-slate-100/70 px-8 py-4 flex items-center justify-between rounded-t-3xl">
+      <div class="flex items-center gap-8">
+        <a href="Main.html" class="text-xl font-bold tracking-tight text-slate-800">리턴핏</a>
+        <nav class="flex flex-wrap items-center gap-6 text-sm font-medium text-slate-500">
+          <a href="Self_Inspection1.html" class="hover:text-indigo-600 transition-colors">자가점검</a>
+          <a href="Job_Posting.html" class="hover:text-indigo-600 transition-colors">채용정보</a>
+          <a href="Recruitment_Information.html" class="hover:text-indigo-600 transition-colors">보조금24</a>
+          <a href="Trainning.html" class="text-indigo-600 font-semibold">훈련과정</a>
+          <a href="Support_Agency.html" class="hover:text-indigo-600 transition-colors">도움기관</a>
+          <a href="Ai_Agent.html" class="hover:text-indigo-600 transition-colors">AI 도우미</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content" class="flex-1 px-8 pt-8 pb-8 space-y-6">
+      <section class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
+        <div class="flex items-center justify-between gap-4 flex-wrap mb-4">
+          <div>
+            <h2 class="text-2xl font-semibold text-slate-800">훈련과정</h2>
+            <p class="text-sm text-slate-500 mt-1">고용24 국민내일배움카드 API에서 실제 과정을 불러옵니다.</p>
+          </div>
+          <span id="result-count" class="bg-indigo-50 text-indigo-700 text-sm px-4 py-2 rounded-full font-semibold">불러오는 중</span>
+        </div>
+
+        <div id="region-filter" class="flex flex-wrap gap-2 mb-4">
+          <button data-region="" class="region-btn bg-indigo-600 text-white border border-indigo-600 px-4 py-2 rounded-full text-sm font-semibold transition-all">전체</button>
+          <button data-region="11" class="region-btn bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">서울</button>
+          <button data-region="41" class="region-btn bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">경기</button>
+          <button data-region="26" class="region-btn bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">부산</button>
+          <button data-region="30" class="region-btn bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">대전</button>
+          <button data-region="29" class="region-btn bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">광주</button>
+          <button data-region="28" class="region-btn bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">인천</button>
+          <button data-region="27" class="region-btn bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">대구</button>
+        </div>
+
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-300"></i>
+          <input id="keyword-input" type="search" placeholder="과정명 또는 기관명 검색" class="w-full bg-slate-50 border border-slate-200 rounded-2xl py-3 pl-11 pr-4 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:border-indigo-300">
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 mt-4">
+          <button id="search-btn" type="button" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all">
+            <i class="fa-solid fa-magnifying-glass mr-1"></i>검색
+          </button>
+          <button id="reset-search-btn" type="button" class="bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all">
+            <i class="fa-solid fa-arrow-rotate-left mr-1 text-slate-400"></i>전체 다시 보기
+          </button>
+          <span id="search-status" class="text-xs text-slate-400">검색어 입력 후 Enter 또는 검색 버튼을 눌러주세요.</span>
+        </div>
+      </section>
+
+      <section id="training-list" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"></section>
+
+      <div id="loading" class="flex justify-center py-8 text-sm text-slate-500">
+        <div class="flex items-center gap-2 bg-white border border-slate-100 rounded-full px-5 py-3 shadow-sm">
+          <i class="fa-solid fa-spinner fa-spin text-indigo-500"></i>
+          <span>고용24 훈련과정을 불러오는 중이에요...</span>
+        </div>
+      </div>
+
+      <div id="empty-state" class="hidden bg-white rounded-2xl p-10 text-center border border-slate-100">
+        <p class="text-slate-600 font-medium">표시할 훈련과정이 없어요.</p>
+        <p class="text-sm text-slate-400 mt-2">검색 조건을 바꾸거나 고용24에서 직접 확인해 주세요.</p>
+        <a href="https://www.work24.go.kr" target="_blank" rel="noopener noreferrer" class="inline-flex mt-5 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all">고용24 열기</a>
+      </div>
+
+      <div id="pagination" class="hidden flex items-center justify-center gap-2 pt-2"></div>
+    </main>
+  </div>
+</div>
+<script>
+  const PAGE_SIZE = 9;
+  const regionNames = {
+    "": "전체",
+    "11": "서울",
+    "26": "부산",
+    "27": "대구",
+    "28": "인천",
+    "29": "광주",
+    "30": "대전",
+    "41": "경기"
+  };
+
+  let currentPage = 1;
+  let selectedRegion = "";
+  let keyword = "";
+  let totalCount = 0;
+  let currentItems = [];
+  let activeRequestId = 0;
+
+  const trainingList = document.getElementById("training-list");
+  const resultCount = document.getElementById("result-count");
+  const loading = document.getElementById("loading");
+  const emptyState = document.getElementById("empty-state");
+  const pagination = document.getElementById("pagination");
+  const keywordInput = document.getElementById("keyword-input");
+  const searchButton = document.getElementById("search-btn");
+  const resetSearchButton = document.getElementById("reset-search-btn");
+  const searchStatus = document.getElementById("search-status");
+
+  function formatDate(value) {
+    const text = String(value || "");
+    if (text.length !== 8) return text || "일정 확인 필요";
+    return `${text.slice(0, 4)}.${text.slice(4, 6)}.${text.slice(6, 8)}`;
+  }
+
+  function getText(node, selector) {
+    return node.querySelector(selector)?.textContent?.trim() || "";
+  }
+
+  function absolutizeUrl(url) {
+    if (!url) return "https://www.work24.go.kr";
+    if (url.startsWith("http")) return url;
+    return `https://www.work24.go.kr${url.startsWith("/") ? "" : "/"}${url}`;
+  }
+
+  function parseTrainingXml(xmlText) {
+    const doc = new DOMParser().parseFromString(xmlText, "text/xml");
+    const parserError = doc.querySelector("parsererror");
+    const apiError = doc.querySelector("error")?.textContent?.trim();
+    if (parserError) throw new Error("API 응답을 해석할 수 없습니다.");
+    if (apiError) throw new Error(apiError);
+
+    totalCount = Number(getText(doc, "scn_cnt") || 0);
+    return [...doc.querySelectorAll("scn_list")].map(item => ({
+      title: getText(item, "title"),
+      school: getText(item, "subTitle"),
+      link: absolutizeUrl(getText(item, "titleLink") || getText(item, "subTitleLink")),
+      address: getText(item, "address"),
+      phone: getText(item, "telNo"),
+      startDate: formatDate(getText(item, "traStartDate")),
+      endDate: formatDate(getText(item, "traEndDate")),
+      cost: getText(item, "courseMan") || getText(item, "realMan"),
+      target: getText(item, "trainTarget"),
+      score: getText(item, "stdgScor"),
+      region: regionNames[selectedRegion] || "-"
+    })).filter(item => item.title && item.link);
+  }
+
+  function getSearchRange() {
+    const start = new Date();
+    const end = new Date();
+    end.setMonth(end.getMonth() + 6);
+    const toYmd = date => `${date.getFullYear()}${String(date.getMonth() + 1).padStart(2, "0")}${String(date.getDate()).padStart(2, "0")}`;
+    return { start: toYmd(start), end: toYmd(end) };
+  }
+
+  async function fetchTrainings() {
+    const range = getSearchRange();
+    const requestParams = new URLSearchParams({
+      page: String(currentPage),
+      pageSize: String(PAGE_SIZE),
+      startDate: range.start,
+      endDate: range.end,
+      region: selectedRegion,
+      keyword,
+    });
+
+    const endpoint = window.RETURNFIT_API_ENDPOINTS?.trainings || "http://localhost:5607/api/trainings";
+    const response = await fetch(`${endpoint}?${requestParams.toString()}`);
+    if (!response.ok) {
+      const contentType = response.headers.get("content-type") || "";
+      if (contentType.includes("application/json")) {
+        const data = await response.json();
+        throw new Error(data.hint || data.error || "고용24 API 요청에 실패했습니다.");
+      }
+      throw new Error("고용24 API 요청에 실패했습니다.");
+    }
+    return parseTrainingXml(await response.text());
+  }
+
+  function createTrainingCard(item) {
+    const score = item.score ? `<span class="bg-amber-50 text-amber-700 text-xs px-2.5 py-1 rounded-md border border-amber-100">만족도 ${item.score}</span>` : "";
+    const cost = item.cost ? `<span class="bg-slate-50 text-slate-500 text-xs px-2.5 py-1 rounded-md border border-slate-200">${item.cost}</span>` : "";
+    const target = item.target ? `<span class="bg-indigo-50 text-indigo-700 text-xs px-2.5 py-1 rounded-md border border-indigo-100">${item.target}</span>` : "";
+    const recommendationBadge = item.recommendationRank
+      ? `<div class="mb-3 flex flex-wrap items-center gap-2">
+          <span class="bg-indigo-600 text-white text-xs px-3 py-1 rounded-full font-semibold">추천 ${item.recommendationRank}</span>
+          <span class="text-xs text-indigo-600 font-medium">${item.recommendationReason}</span>
+        </div>`
+      : "";
+
+    return `<article class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 hover:shadow-md transition-all">
+      ${recommendationBadge}
+      <span class="bg-indigo-50 text-indigo-700 text-xs px-3 py-1 rounded-full">${item.region}</span>
+      <h3 class="text-sm font-semibold text-slate-800 mt-3 mb-1 leading-snug">${item.title}</h3>
+      <p class="text-xs text-slate-500 mb-3">${item.school || "훈련기관 확인 필요"}</p>
+      <div class="space-y-2 text-xs text-slate-500 mb-4">
+        <p><i class="fa-regular fa-calendar mr-1 text-slate-400"></i>${item.startDate} ~ ${item.endDate}</p>
+        <p><i class="fa-regular fa-building mr-1 text-slate-400"></i>${item.address || "주소 정보 없음"}</p>
+        <p><i class="fa-regular fa-phone mr-1 text-slate-400"></i>${item.phone || "문의처 확인 필요"}</p>
+      </div>
+      <div class="flex flex-wrap gap-1.5 mb-4">${target}${cost}${score}</div>
+      <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="block w-full bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs px-4 py-2.5 rounded-full font-medium transition-colors text-center">과정 확인</a>
+    </article>`;
+  }
+
+  function renderPagination() {
+    const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+    if (totalPages <= 1) {
+      pagination.classList.add("hidden");
+      pagination.innerHTML = "";
+      return;
+    }
+
+    pagination.classList.remove("hidden");
+    const prevDisabled = currentPage <= 1;
+    const nextDisabled = currentPage >= totalPages;
+    pagination.innerHTML = `
+      <button type="button" data-page="prev" class="px-4 py-2 rounded-full text-sm border ${prevDisabled ? "bg-slate-100 text-slate-300 border-slate-100" : "bg-white text-slate-600 border-slate-200 hover:border-indigo-300"}" ${prevDisabled ? "disabled" : ""}>이전</button>
+      <span class="px-4 py-2 text-sm text-slate-500">${currentPage} / ${totalPages}</span>
+      <button type="button" data-page="next" class="px-4 py-2 rounded-full text-sm border ${nextDisabled ? "bg-slate-100 text-slate-300 border-slate-100" : "bg-white text-slate-600 border-slate-200 hover:border-indigo-300"}" ${nextDisabled ? "disabled" : ""}>다음</button>
+    `;
+  }
+
+  async function renderTrainings() {
+    const requestId = ++activeRequestId;
+    loading.classList.remove("hidden");
+    emptyState.classList.add("hidden");
+    pagination.classList.add("hidden");
+    pagination.innerHTML = "";
+    trainingList.innerHTML = "";
+    searchButton.disabled = true;
+    resetSearchButton.disabled = true;
+    searchButton.classList.add("opacity-60");
+    resetSearchButton.classList.add("opacity-60");
+    if (searchStatus) {
+      searchStatus.textContent = `${getSearchLabel()} 검색 중...`;
+    }
+
+    try {
+      const items = await fetchTrainings();
+      if (requestId !== activeRequestId) return;
+      currentItems = await window.ReturnFitRecommendations.recommend("trainings", items);
+      if (requestId !== activeRequestId) return;
+      resultCount.textContent = `전체 ${totalCount.toLocaleString()}건`;
+      trainingList.innerHTML = currentItems.map(createTrainingCard).join("");
+      if (!currentItems.length) emptyState.classList.remove("hidden");
+      if (searchStatus) {
+        searchStatus.textContent = `${getSearchLabel()} 결과 ${totalCount.toLocaleString()}건`;
+      }
+      renderPagination();
+    } catch (error) {
+      if (requestId !== activeRequestId) return;
+      totalCount = 0;
+      currentItems = [];
+      resultCount.textContent = "API 확인 필요";
+      emptyState.classList.remove("hidden");
+      emptyState.querySelector("p").textContent = "고용24 API 데이터를 불러오지 못했어요.";
+      emptyState.querySelector(".text-sm").textContent = error.message || "브라우저 CORS 정책이나 인증키 상태를 확인해야 합니다. 예시 데이터는 표시하지 않습니다.";
+      pagination.classList.add("hidden");
+      pagination.innerHTML = "";
+      if (searchStatus) searchStatus.textContent = "검색 조건을 바꿔 다시 시도해 주세요.";
+    } finally {
+      if (requestId === activeRequestId) {
+        loading.classList.add("hidden");
+        searchButton.disabled = false;
+        resetSearchButton.disabled = false;
+        searchButton.classList.remove("opacity-60");
+        resetSearchButton.classList.remove("opacity-60");
+      }
+    }
+  }
+
+  function searchTrainings() {
+    keyword = keywordInput.value.trim();
+    currentPage = 1;
+    renderTrainings();
+  }
+
+  function resetSearch() {
+    keyword = "";
+    keywordInput.value = "";
+    currentPage = 1;
+    renderTrainings();
+  }
+
+  function getSearchLabel() {
+    const regionText = regionNames[selectedRegion] || "전체";
+    const regionLabel = regionText === "전체" ? "전체" : `${regionText} 지역`;
+    return keyword ? `${regionLabel} · "${keyword}"` : regionLabel;
+  }
+
+  function setActiveRegionButton(clickedButton) {
+    document.querySelectorAll(".region-btn").forEach(btn => {
+      btn.className = "region-btn bg-white text-slate-600 border border-slate-200 hover:border-indigo-300 px-4 py-2 rounded-full text-sm font-medium transition-all";
+    });
+    clickedButton.className = "region-btn bg-indigo-600 text-white border border-indigo-600 px-4 py-2 rounded-full text-sm font-semibold transition-all";
+  }
+
+  document.getElementById("region-filter").addEventListener("click", event => {
+    const button = event.target.closest(".region-btn");
+    if (!button) return;
+    selectedRegion = button.dataset.region;
+    currentPage = 1;
+    setActiveRegionButton(button);
+    renderTrainings();
+  });
+
+  keywordInput.addEventListener("keydown", event => {
+    if (event.key !== "Enter") return;
+    searchTrainings();
+  });
+
+  searchButton.addEventListener("click", searchTrainings);
+  resetSearchButton.addEventListener("click", resetSearch);
+
+  pagination.addEventListener("click", event => {
+    const button = event.target.closest("button[data-page]");
+    if (!button) return;
+    currentPage += button.dataset.page === "next" ? 1 : -1;
+    renderTrainings();
+  });
+
+  renderTrainings();
+</script>
+</body>
+</html>
